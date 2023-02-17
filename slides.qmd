@@ -1,0 +1,83 @@
+---
+title: "What is Quarto"
+author: "John Little"
+format: 
+  revealjs: 
+    theme: solarized
+    footer: "CC BY 4.0 John R Little"
+    license: CC BY
+---
+
+# Define
+
+## Quarto
+
+-   Open-source publishing system
+
+-   Leveraged by multiple coding languages (Python, R, Julia, ObservableJS)
+
+-   Supported by multiple IDEs (VS Code, Jupyter, RStudio, Neovim)
+
+-   Can [publish](https://quarto.org/docs/publishing/) to multiple hosting targets (QuartoPub \| GitHub Pages \| Posit Connect \| Netlify \| Others)
+
+## Notable
+
+Everything I'm going to show you was coded with open-source tools and published via Quarto
+
+## Tidyverse
+
+I'm going to use RStudio and freely publish to Quarto.pub
+
+-   Quarto further develops the workflow of **reproducible** computation by extending *markdown* and literate coding **workflows**
+
+> In much the same way that **Tidyverse** brings consistency and good documentation to base-R, and **Tidymodels** brings consistency and good documentation to modeling and ML, **Quarto** brings consistency and good documentation to reproducibility (i.e. \[literate\] coding.)
+
+## Reproducibility Payoff
+
+Reproducible workflows for *computation thinking*
+
+data -\> analysis -\> publishing
+
+-   Do everything with code
+
+-   derive reports from code
+
+Quarto reports can be PDF, MSWord, Slides (PPTx, revealjs, etc.), Websites, Dashboards, eBooks, Blogs, Interactivity apps (ObservableJS; Shiny; more)
+
+## Citations, Tables, Figures, and Scientific Notation
+
+-   Quarto will generate citations and a bibliography in multiple styles
+
+    -   Can integrate with DOI/Zotero/.bib/.bibtex/Endnote ...
+
+-   Quarto generates numbering for tables and figures
+
+-   Excellent support for LaTeX equations and citations
+
+## Review
+
+Quarto helps you derive reports from code and facilitates publishing to your favorite host
+
+. . .
+
+#### Note:
+
+Unlike many other tools, Quarto does not present a lock-in situation. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly \[scientific\] communication.
+
+## Resources
+
+-   Mine - YouTube
+
+-   Mock - YouTube
+
+-   Quarto Docs
+
+    -   get started
+
+    -   guides
+
+    -   reference
+
+    -   gallery
+
+# Show

@@ -1,0 +1,44 @@
+---
+format: 
+  html:
+    toc: false
+    css: mystyles/custom.css
+---
+
+### [Quarto is...](https://quarto.org)
+
+ \
+
+An **open-source** publishing suite
+
+Leveraged by multiple coding languages
+
+-   [Python, R, Julia, ObservableJS]{.gray}
+
+Supported by multiple IDEs
+
+-   [VS Code, Jupyter, RStudio, Neovim]{.gray}
+
+[Publish](https://quarto.org/docs/publishing/) to multiple hosting targets
+
+-   [QuartoPub \| GitHub Pages \| Posit Connect \| Netlify \| Others]{.gray}
+
+A useful addition to your **reproducible workflow**
+
+ \
+
+::: {.card .bg-secondary .mb-3}
+::: card-header
+Website & slides
+:::
+
+::: card-body
+Website and slides were developed via the Quarto suite and published to [Quarto.pub](https://quarto.pub)
+:::
+:::
+
+<!-- More info on applyting styles -->
+
+<!-- Bootswatch::Yeti   https://bootswatch.com/yeti/ -->
+
+<!-- Bootstrap CSS  https://www.w3schools.com/bootstrap/bootstrap_ref_css_helpers.asp -->

@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "What is Quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: slides.qmd
+        text: Slides
+      - trade_data_explore.qmd
+      - href: more_info.qmd
+        text: More information
+      - about.qmd
+
+format:
+  html:
+    theme: [yeti, mystyles/custom.scss]
+    # css: mystyles/custom.scss
+    toc: true
+
+editor: visual
+

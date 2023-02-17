@@ -1,0 +1,312 @@
+---
+title: "trade data explore"
+format: 
+  html:
+    df-print: paged
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
+    keep-hidden: true
+    code-tools: true
+editor: source
+---
+
+Inspired by:  https://observablehq.com/@observablehq/monthly-retail-trade-report-data?collection=@observablehq/datasets
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| code-fold: false
+library(tidyverse)
+satisfaction_df <- read_csv("data/qualtrics_student_satisfaction-test-data.csv", 
+    col_names = FALSE, skip = 3)
+my_df_colnames_and_questions <- 
+  read_csv("data/qualtrics_student_satisfaction-test-data.csv", 
+           n_max = 1) |> 
+  janitor::clean_names()
+my_colnames_vec <- colnames(my_df_colnames_and_questions)
+colnames(satisfaction_df) <- my_colnames_vec
+trade_df <- read_csv("data/data.csv")
+```
+
+
+```{r}
+satisfaction_df
+```
+```{r}
+my_q1q4_levels <- rev(c("Extremely helpful", 
+                   "Moderately helpful", 
+                   "Slightly helpful", 
+                   "Neither helpful nor unhelpful",
+                   "Slightly unhelpful", 
+                   "Moderately unhelpful", 
+                   "Extremely unhelpful" ))
+
+my_df_tall <- satisfaction_df |> 
+  select(response_id, q1:last_col()) |> 
+  pivot_longer(-c(response_id, q15), names_to = "my_question", values_to = "response") |> 
+  filter(my_question %in% c("q1", "q4"))  |> 
+  mutate(response = factor(response, levels = my_q1q4_levels)) |> 
+  mutate(rnumber = as.numeric(response))
+my_df_tall
+```
+
+```{r}
+# my_q1q4_levels <- rev(c("Extremely helpful", 
+#                    "Moderately helpful", 
+#                    "Slightly helpful", 
+#                    "Neither helpful nor unhelpful",
+#                    "Slightly unhelpful", 
+#                    "Moderately unhelpful", 
+#                    "Extremely unhelpful" ))
+
+my_df_tall |> 
+  filter(my_question %in% c("q1", "q4")) |> 
+  mutate(response = factor(response, levels = my_q1q4_levels)) |> 
+  ggplot(aes(response)) +
+  geom_bar() +
+  coord_flip() +
+  facet_wrap(vars(my_question)) 
+```
+```{r}
+glimpse(trade_df)
+```
+## Trade data EDA
+
+```{r}
+trade_df <- trade_df |> 
+  filter(str_detect(business, "(Motor|beverage|Electronics)")) |> 
+  mutate(sales = as.integer(sales))
+trade_df |> 
+  ggplot(aes(date, sales)) +
+  geom_line(aes(color = business), show.legend = FALSE)
+  # geom_line(aes(color = business))
+```
+## Survey data EDA
+
+```{r}
+satisfaction_df 
+  
+```
+
+
+## transpose to arquero
+
+```{r}
+ojs_define(trade_df_ojs = trade_df)
+ojs_define(my_df_tall_ojs = my_df_tall)
+
+```
+
+via osj `transpose` for arquero (`aq.from`)
+
+```{ojs}
+//| echo: true
+
+my_data = aq.from(transpose(trade_df_ojs))
+// newdata_foo.view()
+
+my_survey = aq.from(transpose(my_df_tall_ojs))
+```
+
+
+```{ojs}
+my_data.view()
+```
+
+```{ojs}
+Plot.plot({
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(my_data_wrangled, {
+      x: "date",
+      y: "sales",
+      stroke: "business"
+    }),
+  ]
+})
+```
+
+
+
+```{ojs}
+my_data_wrangled = my_data
+  .derive({  date: d =>  op.parse_date(d.date)})
+```
+
+
+## survey data barplot
+
+```{ojs}
+my_survey.view()
+```
+
+### count
+
+```{ojs}
+my_survey_counted = my_survey
+  .groupby('my_question', 'response')
+  .count()
+  .orderby('my_question', aq.desc('count'))
+
+my_survey_counted.view()
+```
+
+```{ojs}
+my_survey
+  .groupby('my_question', 'response', 'rnumber')
+  .count()
+  .orderby('my_question', aq.desc('rnumber'))
+  .view()
+```
+
+
+### viz
+
+```{ojs}
+q1 = my_survey
+  .filter(d => d.my_question == "q1")
+  .groupby('my_question', 'response', 'rnumber')
+  .count()
+  .orderby('my_question', aq.desc('rnumber'))
+
+q1.view()
+
+Plot.plot({
+  marginRight: 140,
+  y: {
+    axis: null,
+//    domain: d3.sort(q1, d => -d.count).map(d => d.response)
+    domain: d3.sort(q1, d => -d.rnumber).map(d => d.response)
+  },
+  x: {
+    grid: true
+  },
+ marks: [
+    Plot.barX(q1, {y: "response", x: "count"}),
+    Plot.text(q1, {
+      x: "count",
+      y: "response",
+      text: "response",
+      textAnchor: "start",
+      dx: 6
+    })
+  ]
+})
+```
+
+
+
+```{ojs}
+q4 = my_survey
+  .filter(d => d.my_question == "q4")
+  .groupby('my_question', 'response', 'rnumber')
+  .count()
+  .orderby('my_question', aq.desc('rnumber'))
+
+Plot.plot({
+  marginRight: 140,
+  y: {
+    axis: null,
+    domain: d3.sort(q4, d => -d.rnumber).map(d => d.response)
+  },
+  x: {
+    grid: true
+  },
+ marks: [
+    Plot.barX(q4, {y: "response", x: "count"}),
+    Plot.text(q4, {
+      x: "count",
+      y: "response",
+      text: "response",
+      textAnchor: "start",
+      dx: 6
+    })
+  ]
+})
+```
+
+
+## dynamic filtering
+
+```{ojs}
+//| panel: input
+//| layout-ncol: 1
+
+// viewof my_question = Inputs.radio(
+//  ["q1", "q4"], 
+//  {  value: "q1", 
+//     label: html`<b>Choose Question</b>`,
+//     multiple: true
+// })
+
+viewof radio_2 = 
+Inputs.radio(
+  new  Map([
+    ["Question One",  'q1'], 
+    ["Question Four", 'q4']
+  ]),
+  {  label: html`<b>Survey results summarized:</b>`,
+     value: 'q1',
+     multiple: true
+})
+```
+
+::: {.panel-tabset}
+
+## Plot
+
+```{ojs}
+my_survey_filtered = my_survey
+  .filter(aq.escape(d => d.my_question == radio_2))
+  .groupby('my_question', 'response', 'rnumber')
+  .count()
+  .orderby('my_question', aq.desc('rnumber'))
+  
+Plot.plot({
+  marginRight: 140,
+  y: {
+    axis: null,
+    domain: d3.sort(my_survey_filtered, d => -d.rnumber).map(d => d.response)
+  },
+  x: {
+    grid: true
+  },
+ marks: [
+    Plot.barX(my_survey_filtered, {y: "response", x: "count"}),
+    Plot.text(my_survey_filtered, {
+      x: "count",
+      y: "response",
+      text: "response",
+      textAnchor: "start",
+      dx: 6
+    })
+  ]
+})
+```
+
+## Data
+
+```{ojs}
+my_survey_filtered.view()
+```
+
+
+:::
+
+## Download
+
+
+```{ojs}
+downloadButton(my_survey.objects(), "Qualtrics_test_data.csv")
+```
+
+
+## Observablejs libraries
+
+```{ojs}
+import { aq, op } from '@uwdata/arquero'
+// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"
+import {button as downloadButton} from "@jeremiak/download-data-button"
+```

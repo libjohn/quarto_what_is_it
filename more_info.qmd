@@ -1,0 +1,19 @@
+---
+title: "Quarto documentation and turorials"
+---
+
+**Getting Started?** Read this [quarto authoring overview](https://quarto.org/docs/get-started/authoring/rstudio.html) (Custom tutorial. Be sure to customize the instructions by **picking your** IDE or CLI approach)
+
+How Quarto enhances the workflow of scientific writing
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+&nbsp;[![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube "YouTube Playlist")](https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Quarto documentation
+
+- [Guides](https://quarto.org/docs/guide/)
+- [Reference documentation](https://quarto.org/docs/reference/)
+- [Gallery examples](https://quarto.org/docs/gallery/)

@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "What is Quarto",
+    "section": "",
+    "text": "Quarto is…\n \n\nAn open-source publishing suite\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n \n\n\n\nWebsite & slides\n\n\nWebsite and slides were developed via the Quarto suite and published to Quarto.pub"
+  },
+  {
+    "objectID": "more_info.html",
+    "href": "more_info.html",
+    "title": "Quarto documentation and turorials",
+    "section": "",
+    "text": "Getting Started? Read this quarto authoring overview (Custom tutorial. Be sure to customize the instructions by picking your IDE or CLI approach)\nHow Quarto enhances the workflow of scientific writing\n\n\n \n\n\n\nQuarto documentation\n\nGuides\nReference documentation\nGallery examples"
+  },
+  {
+    "objectID": "slides.html#quarto",
+    "href": "slides.html#quarto",
+    "title": "What is Quarto",
+    "section": "Quarto",
+    "text": "Quarto\n\nOpen-source publishing system\nLeveraged by multiple coding languages (Python, R, Julia, ObservableJS)\nSupported by multiple IDEs (VS Code, Jupyter, RStudio, Neovim)\nCan publish to multiple hosting targets (QuartoPub | GitHub Pages | Posit Connect | Netlify | Others)"
+  },
+  {
+    "objectID": "slides.html#notable",
+    "href": "slides.html#notable",
+    "title": "What is Quarto",
+    "section": "Notable",
+    "text": "Notable\nEverything I’m going to show you was coded with open-source tools and published via Quarto"
+  },
+  {
+    "objectID": "slides.html#tidyverse",
+    "href": "slides.html#tidyverse",
+    "title": "What is Quarto",
+    "section": "Tidyverse",
+    "text": "Tidyverse\nI’m going to use RStudio and freely publish to Quarto.pub\n\nQuarto further develops the workflow of reproducible computation by extending markdown and literate coding workflows\n\n\nIn much the same way that Tidyverse brings consistency and good documentation to base-R, and Tidymodels brings consistency and good documentation to modeling and ML, Quarto brings consistency and good documentation to reproducibility (i.e. [literate] coding.)"
+  },
+  {
+    "objectID": "slides.html#reproducibility-payoff",
+    "href": "slides.html#reproducibility-payoff",
+    "title": "What is Quarto",
+    "section": "Reproducibility Payoff",
+    "text": "Reproducibility Payoff\nReproducible workflows for computation thinking\ndata -> analysis -> publishing\n\nDo everything with code\nderive reports from code\n\nQuarto reports can be PDF, MSWord, Slides (PPTx, revealjs, etc.), Websites, Dashboards, eBooks, Blogs, Interactivity apps (ObservableJS; Shiny; more)"
+  },
+  {
+    "objectID": "slides.html#citations-tables-figures-and-scientific-notation",
+    "href": "slides.html#citations-tables-figures-and-scientific-notation",
+    "title": "What is Quarto",
+    "section": "Citations, Tables, Figures, and Scientific Notation",
+    "text": "Citations, Tables, Figures, and Scientific Notation\n\nQuarto will generate citations and a bibliography in multiple styles\n\nCan integrate with DOI/Zotero/.bib/.bibtex/Endnote …\n\nQuarto generates numbering for tables and figures\nExcellent support for LaTeX equations and citations"
+  },
+  {
+    "objectID": "slides.html#review",
+    "href": "slides.html#review",
+    "title": "What is Quarto",
+    "section": "Review",
+    "text": "Review\nQuarto helps you derive reports from code and facilitates publishing to your favorite host\n\nNote:\nUnlike many other tools, Quarto does not present a lock-in situation. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly [scientific] communication."
+  },
+  {
+    "objectID": "slides.html#resources",
+    "href": "slides.html#resources",
+    "title": "What is Quarto",
+    "section": "Resources",
+    "text": "Resources\n\nMine - YouTube\nMock - YouTube\nQuarto Docs\n\nget started\nguides\nreference\ngallery"
+  },
+  {
+    "objectID": "trade_data_explore.html",
+    "href": "trade_data_explore.html",
+    "title": "trade data explore",
+    "section": "",
+    "text": "Inspired by: https://observablehq.com/@observablehq/monthly-retail-trade-report-data?collection=@observablehq/datasets"
+  },
+  {
+    "objectID": "trade_data_explore.html#trade-data-eda",
+    "href": "trade_data_explore.html#trade-data-eda",
+    "title": "trade data explore",
+    "section": "Trade data EDA",
+    "text": "Trade data EDA\n\n\nShow the code\ntrade_df <- trade_df |> \n  filter(str_detect(business, \"(Motor|beverage|Electronics)\")) |> \n  mutate(sales = as.integer(sales))\ntrade_df |> \n  ggplot(aes(date, sales)) +\n  geom_line(aes(color = business), show.legend = FALSE)\n\n\n\n\n\nShow the code\n  # geom_line(aes(color = business))"
+  },
+  {
+    "objectID": "trade_data_explore.html#survey-data-eda",
+    "href": "trade_data_explore.html#survey-data-eda",
+    "title": "trade data explore",
+    "section": "Survey data EDA",
+    "text": "Survey data EDA\n\n\nShow the code\nsatisfaction_df"
+  },
+  {
+    "objectID": "trade_data_explore.html#transpose-to-arquero",
+    "href": "trade_data_explore.html#transpose-to-arquero",
+    "title": "trade data explore",
+    "section": "transpose to arquero",
+    "text": "transpose to arquero\n\n\nShow the code\nojs_define(trade_df_ojs = trade_df)\nojs_define(my_df_tall_ojs = my_df_tall)\n\n\nvia osj transpose for arquero (aq.from)\n\n\nShow the code\nmy_data = aq.from(transpose(trade_df_ojs))\n// newdata_foo.view()\n\nmy_survey = aq.from(transpose(my_df_tall_ojs))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nmy_data.view()\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  marks: [\n    Plot.ruleY([0]),\n    Plot.lineY(my_data_wrangled, {\n      x: \"date\",\n      y: \"sales\",\n      stroke: \"business\"\n    }),\n  ]\n})\n\n\n\n\n\n\n\n\n\nShow the code\nmy_data_wrangled = my_data\n  .derive({  date: d =>  op.parse_date(d.date)})"
+  },
+  {
+    "objectID": "trade_data_explore.html#survey-data-barplot",
+    "href": "trade_data_explore.html#survey-data-barplot",
+    "title": "trade data explore",
+    "section": "survey data barplot",
+    "text": "survey data barplot\n\n\nShow the code\nmy_survey.view()\n\n\n\n\n\n\n\n\ncount\n\n\nShow the code\nmy_survey_counted = my_survey\n  .groupby('my_question', 'response')\n  .count()\n  .orderby('my_question', aq.desc('count'))\n\nmy_survey_counted.view()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nmy_survey\n  .groupby('my_question', 'response', 'rnumber')\n  .count()\n  .orderby('my_question', aq.desc('rnumber'))\n  .view()\n\n\n\n\n\n\n\n\n\nviz\n\n\nShow the code\nq1 = my_survey\n  .filter(d => d.my_question == \"q1\")\n  .groupby('my_question', 'response', 'rnumber')\n  .count()\n  .orderby('my_question', aq.desc('rnumber'))\n\nq1.view()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nPlot.plot({\n  marginRight: 140,\n  y: {\n    axis: null,\n//    domain: d3.sort(q1, d => -d.count).map(d => d.response)\n    domain: d3.sort(q1, d => -d.rnumber).map(d => d.response)\n  },\n  x: {\n    grid: true\n  },\n marks: [\n    Plot.barX(q1, {y: \"response\", x: \"count\"}),\n    Plot.text(q1, {\n      x: \"count\",\n      y: \"response\",\n      text: \"response\",\n      textAnchor: \"start\",\n      dx: 6\n    })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nq4 = my_survey\n  .filter(d => d.my_question == \"q4\")\n  .groupby('my_question', 'response', 'rnumber')\n  .count()\n  .orderby('my_question', aq.desc('rnumber'))\n\nPlot.plot({\n  marginRight: 140,\n  y: {\n    axis: null,\n    domain: d3.sort(q4, d => -d.rnumber).map(d => d.response)\n  },\n  x: {\n    grid: true\n  },\n marks: [\n    Plot.barX(q4, {y: \"response\", x: \"count\"}),\n    Plot.text(q4, {\n      x: \"count\",\n      y: \"response\",\n      text: \"response\",\n      textAnchor: \"start\",\n      dx: 6\n    })\n  ]\n})"
+  },
+  {
+    "objectID": "trade_data_explore.html#dynamic-filtering",
+    "href": "trade_data_explore.html#dynamic-filtering",
+    "title": "trade data explore",
+    "section": "dynamic filtering",
+    "text": "dynamic filtering\n\n\nShow the code\n// viewof my_question = Inputs.radio(\n//  [\"q1\", \"q4\"], \n//  {  value: \"q1\", \n//     label: html`<b>Choose Question</b>`,\n//     multiple: true\n// })\n\nviewof radio_2 = \nInputs.radio(\n  new  Map([\n    [\"Question One\",  'q1'], \n    [\"Question Four\", 'q4']\n  ]),\n  {  label: html`<b>Survey results summarized:</b>`,\n     value: 'q1',\n     multiple: true\n})\n\n\n\n\n\n\n\n\n\n\n\n\nPlotData\n\n\n\n\nShow the code\nmy_survey_filtered = my_survey\n  .filter(aq.escape(d => d.my_question == radio_2))\n  .groupby('my_question', 'response', 'rnumber')\n  .count()\n  .orderby('my_question', aq.desc('rnumber'))\n  \nPlot.plot({\n  marginRight: 140,\n  y: {\n    axis: null,\n    domain: d3.sort(my_survey_filtered, d => -d.rnumber).map(d => d.response)\n  },\n  x: {\n    grid: true\n  },\n marks: [\n    Plot.barX(my_survey_filtered, {y: \"response\", x: \"count\"}),\n    Plot.text(my_survey_filtered, {\n      x: \"count\",\n      y: \"response\",\n      text: \"response\",\n      textAnchor: \"start\",\n      dx: 6\n    })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow the code\nmy_survey_filtered.view()"
+  },
+  {
+    "objectID": "trade_data_explore.html#download",
+    "href": "trade_data_explore.html#download",
+    "title": "trade data explore",
+    "section": "Download",
+    "text": "Download\n\n\nShow the code\ndownloadButton(my_survey.objects(), \"Qualtrics_test_data.csv\")"
+  },
+  {
+    "objectID": "trade_data_explore.html#observablejs-libraries",
+    "href": "trade_data_explore.html#observablejs-libraries",
+    "title": "trade data explore",
+    "section": "Observablejs libraries",
+    "text": "Observablejs libraries\n\n\nShow the code\nimport { aq, op } from '@uwdata/arquero'\n// import { data, advancedDate } from \"@observablehq/monthly-retail-trade-report-data\"\nimport {button as downloadButton} from \"@jeremiak/download-data-button\""
+  }
+]
