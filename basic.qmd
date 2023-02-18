@@ -1,29 +1,52 @@
 ---
-title: "trade data explore"
+title: Code as you like
+
 format: 
   html:
     df-print: paged
     toc: true
-#    code-fold: true
-    code-summary: "Show the code"
-    keep-hidden: true
-    code-tools: true
     warning: false
     message: false
+    code-summary: "Show the code"
+    code-tools: true
+    
 bibliography: references.bib
 ---
 
-Using your favorite code language, you can develop code for analysis, visualization, and publication.
+::: grid
+::: g-col-7
+With Quarto you can use **your favorite coding language**, to develop and orchestrated your research project.
 
-The idea is to follow *reproducibility* best practices [([Video](https://www.youtube.com/watch?v=VjDM-XsoHUQ))]{.gray} and derive your reports from code. Quarto makes this very convenient.
+The idea is to follow *reproducibility* best practices and derive your reports from code as noted in @anintro2022 .
+:::
 
-I like coding in R/Tidyverse via the RStudio IDE using the quarto visual coding notebooks. You may prefer other environments that will also work with Quarto. [The first page of this website gives a very brief overview](index.html) of Quarto-friendly tools/languages. Better yet, read more at https://Quarto.org
+::: g-col-5
+![Research project pyramid](images/Project%20Foundation%20Pyramid.png "Research Project Pyramid"){fig-alt="Research project pyramid" width="66%"}
+:::
+:::
+
+@fig-data-flowchart with Quarto the workflow of moving from data to publication is more approachable.
+
+```{mermaid}
+%%| label: fig-data-flowchart
+%%| fig-cap: Flowchart data to publication.
+
+flowchart LR
+  A[data] --> C(EDA) --> D(Visualization) 
+  D --> E{Quarto:<br/> Reports & Publication}
+  E --> F[PDF]
+  E --> G[Website]
+  E --> H[eBook]
+  E --> I(etc.)
+```
 
 ## Example
 
+I like coding in Tidyverse R via the RStudio IDE using quarto code-notebooks. Quarto also supports other environments and [the first page of this website gives a very brief overview](index.html) of quarto-friendly tools/languages. Read more at https://Quarto.org
+
 ### Import data
 
-In this next code chunks, I'll load the `{tidyverse}` suite of packages and import some test data generated for a test survey hosted at Qualtrics. Using one of the quarto-friendly coding languages, I wrangle my data with my preferred syntax (`{dplyr} {tidyr} {forcats}`) to import the data. Note, it's very easy to hide the code and just show the results. But here, I'm imagining you want to see the code. In the next examples, I may hide some of the code. You can also click on the `</> Code` option in the upper-right, or the git-hub icon for direct access to my code. All these helpers are Quarto features.
+In the next code chunks, We'll load the `{tidyverse}` suite of packages and import some test data generated for a test survey hosted at Qualtrics. Note, it's very easy to hide the code and just show the results. But here, I'm imagining you want to see the code. In the examples I will hide some of the code, but you can click on the `</> Code` option (above: upper-right,) or the git-hub icon in the navigation bar for direct access to the code. All these helpers are Quarto features.
 
 ```{r}
 library(tidyverse)
@@ -39,7 +62,7 @@ colnames(satisfaction_df) <- my_colnames_vec
 
 ### Wrangle
 
-apply categorical structure, pviot the data for tallying, and subset the data to a small example
+Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from `{dplyr} {tidyr} {forcats}`) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for an demonstration.
 
 ```{r}
 my_q1q4_levels <- rev(c("Extremely helpful", 
@@ -63,7 +86,7 @@ my_df_tall
 
 ### Visualize
 
-@fig-barplot-survey-results Still using a quarto-friendly code for wrangling, Let me quickly visualize as I explore my data
+@fig-barplot-survey-results Still using code that is quarto-friendly, we can quickly visualize as we explore our data.
 
 ```{r}
 #| label: fig-barplot-survey-results
@@ -85,8 +108,12 @@ my_df_tall |>
 
 ### Cross references
 
-Quarto will auto-label and anchor figures and tables cross references, as well as manage bibliographies. Notice @fig-barplot-survey-results above.
+Quarto will auto-label and anchor figures and tables as well as manage bibliographies. Notice @fig-data-flowchart and @fig-barplot-survey-results above.
 
 An example of a bibliographic reference can be seen here: Quarto delivers practical advantages of *literate coding.* @knuth1984. by allowing me to easily integrate my bibliography manager.
 
-**Let's explore a few more quarto features by adding interactivity to my visualization, next --\>**
+Let's explore a few more quarto features by adding interactivity to my visualization, next --\>
+
+::: {.btn-secondary .btn-sm style="max-width: 6rem;"}
+[next ⟶](goo.html)
+:::

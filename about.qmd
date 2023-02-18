@@ -1,9 +1,22 @@
 ---
-title: "About"
+title: "About this site"
+
+format: 
+  html:
+    toc: false
 ---
 
-About this site
+This site was developed for an [Rfun](https://rfun.library.duke.edu) workshop entitled *Quarto: a first look*
 
-```{r}
-1 + 1
-```
+[John Little](https://johnlittle.info) is the host of Rfun, a site devoted to learning R and the Tidyverse.
+
+## Data sets
+
+The data sets in this example Quarto publication are as follows:
+
+| Title                     | Information                                                                  | Filename                                       |
+|---------------------------------|---------------------|------------------|
+| Qualtrics survey data     | Auto-generated test data generated at Qualtrics compiled using a test survey | `qualtrics_student_satisfaction-test-data.csv` |
+| Monthly Retail trade data | https://www.census.gov/retail/index.html                                     | `data.csv`                                     |
+
+[More information](https://github.com/libjohn/quarto_what_is_it/data/README.md)

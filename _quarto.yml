@@ -19,12 +19,11 @@ website:
       - href: slides.qmd
         text: Slides
       - href: basic.qmd
-        text: Code how you like
+        text: Code as you like
       - href: observable.qmd
         text: Interactivity
-      - trade_data_explore.qmd
       - href: more_info.qmd
-        text: More information
+        text: Get started / more information
       - about.qmd
     right:
       - icon: github
@@ -39,4 +38,7 @@ format:
 
 license: CC BY  
 editor: visual
+
+execute:
+  freeze: auto
 

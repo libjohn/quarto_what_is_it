@@ -1,5 +1,5 @@
 ---
-title: "ObservableJS"
+title: "Interactivity: Quarto & Observable JS"
 
 format: 
   html:
@@ -8,9 +8,7 @@ format:
     echo: false
     warning: false
     messages: false
-#    code-fold: true
     code-summary: "Show the code"
-#    keep-hidden: true
     code-tools: true
 ---
 
@@ -25,6 +23,9 @@ my_df_colnames_and_questions <-
 my_colnames_vec <- colnames(my_df_colnames_and_questions)
 colnames(satisfaction_df) <- my_colnames_vec
 trade_df <- read_csv("data/data.csv")
+trade_df <- trade_df |> 
+  filter(str_detect(business, "(Motor|beverage|Electronics)")) |> 
+  mutate(sales = as.integer(sales))
 ```
 
 ```{r}
@@ -108,6 +109,10 @@ Plot.plot({
 ```{ojs}
 my_survey_filtered.view()
 ```
+
+## Code
+
+Scroll to the top and click the `</>` Code icon
 :::
 
 ## Download
@@ -123,7 +128,7 @@ ojs_define(trade_df_ojs = trade_df)
 ojs_define(my_df_tall_ojs = my_df_tall)
 ```
 
-Above are folder {r} code-chunks. I'm importing and wrangling my data with a quarto-friendly code language. Then I transpose my data frame into an OJS object.
+Behind the scenes, when rendering this code, I use `{r}` code-chunks to import and wrangle the data. Just like I did in [*code how you like*](basic.html), I'm importing and wrangling my data with a quarto-friendly code language. Then I *transpose* my data frame into an OJS object.
 
 ```{ojs}
 //| echo: fenced
@@ -147,21 +152,10 @@ import {button as downloadButton} from "@jeremiak/download-data-button"
 
 The next code-chunk shows a very simple exmaple of ObservableJS `Plot` code for visualization. It's remarkably similar to ggplot2 code. This example is so simple that it is not interactive. But, it looks nice :-)
 
-```{ojs}
-my_data.view()
-my_data_wrangled.view()
-```
-
-derive date
-
-```{ojs}
-my_data_wrangled = my_data
-  .derive({  date: d =>  op.parse_date(d.date)})
-```
-
 plot
 
 ```{ojs}
+//| echo: true
 Plot.plot({
   marks: [
     Plot.ruleY([0]),
@@ -172,4 +166,18 @@ Plot.plot({
     }),
   ]
 })
+```
+
+###  Derive date (arquero data wrangling)
+
+::: gray
+**Arquero**! Now what is that? Well, *Observable JavaScript* is its own coding language and we can minimize the learning curve by focusing on the [Plot](https://observablehq.com/plot) grammar and syntax, which is quite similar to `ggplot2`. However, [Observable JS](https://quarto.org/docs/interactive/ojs/) is a complete and rich coding language of its own. But just like [Shiny](https://quarto.org/docs/interactive/shiny/), we want to learn just enough to get the job done. Still, there's always an edge case where a little data wrangling is necessary. This is where [Arquero](https://observablehq.com/@uwdata/introducing-arquero) comes into view. Arquero is easy to learn and use for data transformations, because it was inspired by `dplyr`.
+
+So, aside from the `{dplyr}` wrangling that I did in the background of this code, I still needed to parse the date fields. Arquero to the rescue. Because **meh**, parsing date data-types, so what's new?
+:::
+
+```{ojs}
+//| echo: true
+my_data_wrangled = my_data
+  .derive({  date: d =>  op.parse_date(d.date) })
 ```
