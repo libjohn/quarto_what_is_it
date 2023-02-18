@@ -34,6 +34,7 @@ trade_df <- read_csv("data/data.csv")
 ```{r}
 satisfaction_df
 ```
+
 ```{r}
 my_q1q4_levels <- rev(c("Extremely helpful", 
                    "Moderately helpful", 

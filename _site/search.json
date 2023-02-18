@@ -4,21 +4,70 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+    "objectID": "basic.html",
+    "href": "basic.html",
+    "title": "trade data explore",
+    "section": "",
+    "text": "Using your favorite code language, you can develop code for analysis, visualization, and publication.\nThe idea is to follow reproducibility best practices (Video) and derive your reports from code. Quarto makes this very convenient.\nI like coding in R/Tidyverse via the RStudio IDE using the quarto visual coding notebooks. You may prefer other environments that will also work with Quarto. The first page of this website gives a very brief overview of Quarto-friendly tools/languages. Better yet, read more at https://Quarto.org"
+  },
+  {
+    "objectID": "basic.html#example",
+    "href": "basic.html#example",
+    "title": "trade data explore",
+    "section": "Example",
+    "text": "Example\n\nImport data\nIn this next code chunks, I’ll load the {tidyverse} suite of packages and import some test data generated for a test survey hosted at Qualtrics. Using one of the quarto-friendly coding languages, I wrangle my data with my preferred syntax ({dplyr} {tidyr} {forcats}) to import the data. Note, it’s very easy to hide the code and just show the results. But here, I’m imagining you want to see the code. In the next examples, I may hide some of the code. You can also click on the </> Code option in the upper-right, or the git-hub icon for direct access to my code. All these helpers are Quarto features.\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.0      ✔ purrr   1.0.0 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.5.0 \n✔ readr   2.1.3      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nsatisfaction_df <- read_csv(\"data/qualtrics_student_satisfaction-test-data.csv\", \n    col_names = FALSE, skip = 3)\n\nRows: 25 Columns: 32\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (17): X3, X9, X16, X18, X19, X20, X21, X22, X23, X24, X25, X26, X27, X2...\ndbl   (5): X5, X6, X14, X15, X32\nlgl   (7): X4, X7, X10, X11, X12, X13, X17\ndttm  (3): X1, X2, X8\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nmy_df_colnames_and_questions <- \n  read_csv(\"data/qualtrics_student_satisfaction-test-data.csv\", \n           n_max = 1) |> \n  janitor::clean_names()\n\nRows: 1 Columns: 32\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (32): StartDate, EndDate, Status, IPAddress, Progress, Duration (in seco...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nmy_colnames_vec <- colnames(my_df_colnames_and_questions)\ncolnames(satisfaction_df) <- my_colnames_vec\n\n\n\nWrangle\napply categorical structure, pviot the data for tallying, and subset the data to a small example\n\nmy_q1q4_levels <- rev(c(\"Extremely helpful\", \n                   \"Moderately helpful\", \n                   \"Slightly helpful\", \n                   \"Neither helpful nor unhelpful\",\n                   \"Slightly unhelpful\", \n                   \"Moderately unhelpful\", \n                   \"Extremely unhelpful\" ))\n\nmy_df_tall <- satisfaction_df |> \n  select(response_id, q1:last_col()) |> \n  pivot_longer(-c(response_id, q15), \n               names_to = \"my_question\", \n               values_to = \"response\") |> \n  filter(my_question %in% c(\"q1\", \"q4\"))  |> \n  mutate(response = factor(response, levels = my_q1q4_levels)) |> \n  mutate(rnumber = as.numeric(response))\nmy_df_tall\n\n\n\n  \n\n\n\n\n\nVisualize\nFigure 1 Still using a quarto-friendly code for wrangling, Let me quickly visualize as I explore my data\n\n\nShow the code\nmy_df_tall |> \n  filter(my_question %in% c(\"q1\", \"q4\")) |> \n  mutate(response = factor(response, levels = my_q1q4_levels)) |> \n  ggplot(aes(response)) +\n  geom_bar() +\n  coord_flip() +\n  facet_wrap(vars(my_question)) + \n  theme_classic()\n\n\n\n\n\nFigure 1: Bar plot of survey results.\n\n\n\n\n\n\nCross references\nQuarto will auto-label and anchor figures and tables cross references, as well as manage bibliographies. Notice Figure 1 above.\nAn example of a bibliographic reference can be seen here: Quarto delivers practical advantages of literate coding. Knuth (1984). by allowing me to easily integrate my bibliography manager.\nLet’s explore a few more quarto features by adding interactivity to my visualization, next –>"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "What is Quarto",
     "section": "",
-    "text": "Quarto is…\n \n\nAn open-source publishing suite\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n \n\n\n\nWebsite & slides\n\n\nWebsite and slides were developed via the Quarto suite and published to Quarto.pub"
+    "text": "Quarto is…\n \n\nAn open-source publishing suite\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n \n\n\n\nWebsite & slides\n\n\nWebsite and slides were developed via the Quarto suite and published to Quarto.pub\n\n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
   },
   {
     "objectID": "more_info.html",
     "href": "more_info.html",
     "title": "Quarto documentation and turorials",
     "section": "",
-    "text": "Getting Started? Read this quarto authoring overview (Custom tutorial. Be sure to customize the instructions by picking your IDE or CLI approach)\nHow Quarto enhances the workflow of scientific writing\n\n\n \n\n\n\nQuarto documentation\n\nGuides\nReference documentation\nGallery examples"
+    "text": "Getting Started? Read this quarto authoring overview (Custom tutorial. Be sure to customize the instructions by picking your IDE or CLI approach)\nHow Quarto enhances the workflow of scientific writing"
+  },
+  {
+    "objectID": "more_info.html#introduction-to-reproducible-research-practices",
+    "href": "more_info.html#introduction-to-reproducible-research-practices",
+    "title": "Quarto documentation and turorials",
+    "section": "Introduction to reproducible Research Practices",
+    "text": "Introduction to reproducible Research Practices\n\n\n\nQuarto documentation\n\nGuides\nReference documentation\nGallery examples"
+  },
+  {
+    "objectID": "observable.html#transpose-to-arquero",
+    "href": "observable.html#transpose-to-arquero",
+    "title": "ObservableJS",
+    "section": "Transpose to arquero",
+    "text": "Transpose to arquero\n\n\n\nAbove are folder {r} code-chunks. I’m importing and wrangling my data with a quarto-friendly code language. Then I transpose my data frame into an OJS object.\n\n```{ojs}\n//| echo: fenced\n// Note this is an {ojs} code chunk.\n// Click </> Code to see the full code.\n\nmy_data = aq.from(transpose(trade_df_ojs))\nmy_survey = aq.from(transpose(my_df_tall_ojs))\n```"
+  },
+  {
+    "objectID": "observable.html#interactivity-observablejs",
+    "href": "observable.html#interactivity-observablejs",
+    "title": "ObservableJS",
+    "section": "Interactivity (Observablejs)",
+    "text": "Interactivity (Observablejs)\nThis is a very basic example of diplaying an interactive visualization using ObservableJS.\n\n// viewof my_question = Inputs.radio(\n//  [\"q1\", \"q4\"], \n//  {  value: \"q1\", \n//     label: html`<b>Choose Question</b>`,\n//     multiple: true\n// })\n\nviewof radio_2 = \nInputs.radio(\n  new  Map([\n    [\"Question One\",  'q1'], \n    [\"Question Four\", 'q4']\n  ]),\n  {  label: html`<b>Survey results summarized:</b>`,\n     value: 'q1',\n     multiple: true\n})\n\n\n\n\n\n\n\n\n\n\n\nPlotData\n\n\n\nmy_survey_filtered = my_survey\n  .filter(aq.escape(d => d.my_question == radio_2))\n  .groupby('my_question', 'response', 'rnumber')\n  .count()\n  .orderby('my_question', aq.desc('rnumber'))\n  \nPlot.plot({\n  marginRight: 140,\n  y: {\n    axis: null,\n    domain: d3.sort(my_survey_filtered, d => -d.rnumber).map(d => d.response)\n  },\n  x: {\n    grid: true\n  },\n marks: [\n    Plot.barX(my_survey_filtered, {y: \"response\", x: \"count\"}),\n    Plot.text(my_survey_filtered, {\n      x: \"count\",\n      y: \"response\",\n      text: \"response\",\n      textAnchor: \"start\",\n      dx: 6\n    })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmy_survey_filtered.view()"
+  },
+  {
+    "objectID": "observable.html#download",
+    "href": "observable.html#download",
+    "title": "ObservableJS",
+    "section": "Download",
+    "text": "Download\n\ndownloadButton(my_survey.objects(), \"Qualtrics_test_data.csv\")"
+  },
+  {
+    "objectID": "observable.html#observablejs-libraries",
+    "href": "observable.html#observablejs-libraries",
+    "title": "ObservableJS",
+    "section": "Observablejs libraries",
+    "text": "Observablejs libraries\n\nimport { aq, op } from '@uwdata/arquero'\n// import { data, advancedDate } from \"@observablehq/monthly-retail-trade-report-data\"\nimport {button as downloadButton} from \"@jeremiak/download-data-button\""
   },
   {
     "objectID": "slides.html#quarto",
@@ -124,5 +173,12 @@
     "title": "trade data explore",
     "section": "Observablejs libraries",
     "text": "Observablejs libraries\n\n\nShow the code\nimport { aq, op } from '@uwdata/arquero'\n// import { data, advancedDate } from \"@observablehq/monthly-retail-trade-report-data\"\nimport {button as downloadButton} from \"@jeremiak/download-data-button\""
+  },
+  {
+    "objectID": "observable.html#one-more-example",
+    "href": "observable.html#one-more-example",
+    "title": "ObservableJS",
+    "section": "One more example",
+    "text": "One more example\nThe next code-chunk shows a very simple exmaple of ObservableJS Plot code for visualization. It’s remarkably similar to ggplot2 code. This example is so simple that it is not interactive. But, it looks nice :-)\n\nmy_data.view()\n\n\n\n\n\n\n\nmy_data_wrangled.view()\n\n\n\n\n\n\n\n\nderive date\n\nmy_data_wrangled = my_data\n  .derive({  date: d =>  op.parse_date(d.date)})\n\n\n\n\n\n\nplot\n\nPlot.plot({\n  marks: [\n    Plot.ruleY([0]),\n    Plot.lineY(my_data_wrangled, {\n      x: \"date\",\n      y: \"sales\",\n      stroke: \"business\"\n    }),\n  ]\n})"
   }
 ]

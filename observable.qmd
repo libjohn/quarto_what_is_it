@@ -1,0 +1,175 @@
+---
+title: "ObservableJS"
+
+format: 
+  html:
+    df-print: paged
+    toc: true
+    echo: false
+    warning: false
+    messages: false
+#    code-fold: true
+    code-summary: "Show the code"
+#    keep-hidden: true
+    code-tools: true
+---
+
+```{r}
+library(tidyverse)
+satisfaction_df <- read_csv("data/qualtrics_student_satisfaction-test-data.csv", 
+    col_names = FALSE, skip = 3)
+my_df_colnames_and_questions <- 
+  read_csv("data/qualtrics_student_satisfaction-test-data.csv", 
+           n_max = 1) |> 
+  janitor::clean_names()
+my_colnames_vec <- colnames(my_df_colnames_and_questions)
+colnames(satisfaction_df) <- my_colnames_vec
+trade_df <- read_csv("data/data.csv")
+```
+
+```{r}
+my_q1q4_levels <- rev(c("Extremely helpful", 
+                   "Moderately helpful", 
+                   "Slightly helpful", 
+                   "Neither helpful nor unhelpful",
+                   "Slightly unhelpful", 
+                   "Moderately unhelpful", 
+                   "Extremely unhelpful" ))
+
+my_df_tall <- satisfaction_df |> 
+  select(response_id, q1:last_col()) |> 
+  pivot_longer(-c(response_id, q15), names_to = "my_question", values_to = "response") |> 
+  filter(my_question %in% c("q1", "q4"))  |> 
+  mutate(response = factor(response, levels = my_q1q4_levels)) |> 
+  mutate(rnumber = as.numeric(response))
+```
+
+## Interactivity (Observablejs)
+
+This is a very basic example of diplaying an interactive visualization using ObservableJS.
+
+```{ojs}
+//| panel: input
+//| layout-ncol: 1
+
+// viewof my_question = Inputs.radio(
+//  ["q1", "q4"], 
+//  {  value: "q1", 
+//     label: html`<b>Choose Question</b>`,
+//     multiple: true
+// })
+
+viewof radio_2 = 
+Inputs.radio(
+  new  Map([
+    ["Question One",  'q1'], 
+    ["Question Four", 'q4']
+  ]),
+  {  label: html`<b>Survey results summarized:</b>`,
+     value: 'q1',
+     multiple: true
+})
+```
+
+::: panel-tabset
+## Plot
+
+```{ojs}
+my_survey_filtered = my_survey
+  .filter(aq.escape(d => d.my_question == radio_2))
+  .groupby('my_question', 'response', 'rnumber')
+  .count()
+  .orderby('my_question', aq.desc('rnumber'))
+  
+Plot.plot({
+  marginRight: 140,
+  y: {
+    axis: null,
+    domain: d3.sort(my_survey_filtered, d => -d.rnumber).map(d => d.response)
+  },
+  x: {
+    grid: true
+  },
+ marks: [
+    Plot.barX(my_survey_filtered, {y: "response", x: "count"}),
+    Plot.text(my_survey_filtered, {
+      x: "count",
+      y: "response",
+      text: "response",
+      textAnchor: "start",
+      dx: 6
+    })
+  ]
+})
+```
+
+## Data
+
+```{ojs}
+my_survey_filtered.view()
+```
+:::
+
+## Download
+
+```{ojs}
+downloadButton(my_survey.objects(), "Qualtrics_test_data.csv")
+```
+
+## Transpose to arquero
+
+```{r}
+ojs_define(trade_df_ojs = trade_df)
+ojs_define(my_df_tall_ojs = my_df_tall)
+```
+
+Above are folder {r} code-chunks. I'm importing and wrangling my data with a quarto-friendly code language. Then I transpose my data frame into an OJS object.
+
+```{ojs}
+//| echo: fenced
+// Note this is an {ojs} code chunk.
+// Click </> Code to see the full code.
+
+my_data = aq.from(transpose(trade_df_ojs))
+my_survey = aq.from(transpose(my_df_tall_ojs))
+```
+
+## Observablejs libraries
+
+```{ojs}
+//| echo: true
+import { aq, op } from '@uwdata/arquero'
+// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"
+import {button as downloadButton} from "@jeremiak/download-data-button"
+```
+
+## One more example
+
+The next code-chunk shows a very simple exmaple of ObservableJS `Plot` code for visualization. It's remarkably similar to ggplot2 code. This example is so simple that it is not interactive. But, it looks nice :-)
+
+```{ojs}
+my_data.view()
+my_data_wrangled.view()
+```
+
+derive date
+
+```{ojs}
+my_data_wrangled = my_data
+  .derive({  date: d =>  op.parse_date(d.date)})
+```
+
+plot
+
+```{ojs}
+Plot.plot({
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(my_data_wrangled, {
+      x: "date",
+      y: "sales",
+      stroke: "business"
+    }),
+  ]
+})
+```

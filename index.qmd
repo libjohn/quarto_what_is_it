@@ -2,7 +2,7 @@
 format: 
   html:
     toc: false
-    css: mystyles/custom.css
+    css: _mystyles/custom.css
 ---
 
 ### [Quarto is...](https://quarto.org)
@@ -42,3 +42,4 @@ Website and slides were developed via the Quarto suite and published to [Quarto.
 <!-- Bootswatch::Yeti   https://bootswatch.com/yeti/ -->
 
 <!-- Bootstrap CSS  https://www.w3schools.com/bootstrap/bootstrap_ref_css_helpers.asp -->
+

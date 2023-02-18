@@ -6,14 +6,24 @@ title: "Quarto documentation and turorials"
 
 How Quarto enhances the workflow of scientific writing
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
-&nbsp;[![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube "YouTube Playlist")](https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs)
+</iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ [![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube "YouTube Playlist")](https://www.youtube.com/embed/videoseries?start=60&list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+## Introduction to reproducible Research Practices
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VjDM-XsoHUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
 
 ### Quarto documentation
 
-- [Guides](https://quarto.org/docs/guide/)
-- [Reference documentation](https://quarto.org/docs/reference/)
-- [Gallery examples](https://quarto.org/docs/gallery/)
+-   [Guides](https://quarto.org/docs/guide/)
+-   [Reference documentation](https://quarto.org/docs/reference/)
+-   [Gallery examples](https://quarto.org/docs/gallery/)

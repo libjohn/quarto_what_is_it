@@ -1,5 +1,14 @@
 project:
   type: website
+  
+author: 
+  - name: John R Little
+    affiliations:
+      - name: Duke University
+      - department: Center for Data & Vizualization Sciences
+      
+date: 'today'
+date-format: long
 
 website:
   title: "What is Quarto"
@@ -9,16 +18,25 @@ website:
         text: Home
       - href: slides.qmd
         text: Slides
+      - href: basic.qmd
+        text: Code how you like
+      - href: observable.qmd
+        text: Interactivity
       - trade_data_explore.qmd
       - href: more_info.qmd
         text: More information
       - about.qmd
+    right:
+      - icon: github
+        href: https://github.com/libjohn/quarto_what_is_it
+        aria-label: GitHub
 
 format:
   html:
-    theme: [yeti, mystyles/custom.scss]
+    theme: [yeti, _mystyles/custom.scss]
     # css: mystyles/custom.scss
     toc: true
 
+license: CC BY  
 editor: visual
 
