@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="John R Little">
-<meta name="dcterms.date" content="2023-02-18">
+<meta name="dcterms.date" content="2023-02-19">
 
 <title>What is Quarto - Code as you like</title>
 <style>
@@ -123,6 +123,8 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -190,7 +192,7 @@ div.csl-indent {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html">
- <span class="menu-text">About this site</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -256,7 +258,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 18, 2023</p>
+      <p class="date">February 19, 2023</p>
     </div>
   </div>
   
@@ -272,17 +274,17 @@ div.csl-indent {
 <p>The idea is to follow <em>reproducibility</em> best practices and derive your reports from code as noted in <span class="citation" data-cites="anintro2022"><span>“An Introduction to Reproducible Research Practices”</span> (<a href="#ref-anintro2022" role="doc-biblioref">2022</a>)</span> .</p>
 </div>
 <div class="g-col-5">
-<div class="quarto-figure quarto-figure-center">
+<div id="fig-research_project_pyramid" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <figure class="figure">
 <img src="images/Project Foundation Pyramid.png" title="Research Project Pyramid" class="img-fluid figure-img" style="width:66.0%" alt="Research project pyramid">
 </figure>
-<p></p><figcaption class="figure-caption">Research project pyramid</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Research project pyramid</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p><a href="#fig-data-flowchart">Figure&nbsp;1</a> with Quarto the workflow of moving from data to publication is more approachable.</p>
+<p>With Quarto the workflow ( <a href="#fig-data-flowchart">Figure&nbsp;2</a> ) of moving from data to publication is more approachable.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-data-flowchart" class="quarto-figure quarto-figure-center anchored">
@@ -300,8 +302,29 @@ div.csl-indent {
 
 </div>
 <p></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Flowchart data to publication.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Flowchart data to publication.</figcaption><p></p>
 </figure>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+How did I make the flow-chart diagram above? Click to expand.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Quarto has native support for <a href="https://quarto.org/docs/authoring/diagrams.html">embedding diagrams</a></p>
+<p>How is it done? Follow the link above, Or…</p>
+<ul>
+<li><p>Scroll to the top of this page and click the <i class="fa-solid fa-code" aria-label="code"></i> icon to see all the code</p></li>
+<li><p>Or, see the code by clicking the GitHub icon <i class="fa-brands fa-github" aria-label="github"></i> in the navigation bar</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -310,70 +333,531 @@ div.csl-indent {
 <p>I like coding in Tidyverse R via the RStudio IDE using quarto code-notebooks. Quarto also supports other environments and <a href="index.html">the first page of this website gives a very brief overview</a> of quarto-friendly tools/languages. Read more at https://Quarto.org</p>
 <section id="import-data" class="level3">
 <h3 class="anchored" data-anchor-id="import-data">Import data</h3>
-<p>In the next code chunks, We’ll load the <code>{tidyverse}</code> suite of packages and import some test data generated for a test survey hosted at Qualtrics. Note, it’s very easy to hide the code and just show the results. But here, I’m imagining you want to see the code. In the examples I will hide some of the code, but you can click on the <code>&lt;/&gt; Code</code> option (above: upper-right,) or the git-hub icon in the navigation bar for direct access to the code. All these helpers are Quarto features.</p>
+<p>In the next code chunks, We’ll load the <code>{tidyverse}</code> suite of packages and import some test data generated for a test survey hosted at Qualtrics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>satisfaction_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>my_df_colnames_and_questions <span class="ot">&lt;-</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>my_colnames_vec <span class="ot">&lt;-</span> <span class="fu">colnames</span>(my_df_colnames_and_questions)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(satisfaction_df) <span class="ot">&lt;-</span> my_colnames_vec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>satisfaction_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>my_df_colnames_and_questions <span class="ot">&lt;-</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>my_colnames_vec <span class="ot">&lt;-</span> <span class="fu">colnames</span>(my_df_colnames_and_questions)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(satisfaction_df) <span class="ot">&lt;-</span> my_colnames_vec</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="wrangle" class="level3">
 <h3 class="anchored" data-anchor-id="wrangle">Wrangle</h3>
 <p>Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from <code>{dplyr} {tidyr} {forcats}</code>) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for an demonstration.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_q1q4_levels <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"Extremely helpful"</span>, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately helpful"</span>, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly helpful"</span>, </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Neither helpful nor unhelpful"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly unhelpful"</span>, </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately unhelpful"</span>, </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Extremely unhelpful"</span> ))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="ot">&lt;-</span> satisfaction_df <span class="sc">|&gt;</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(response_id, q1<span class="sc">:</span><span class="fu">last_col</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(response_id, q15), </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"my_question"</span>, </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"response"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>))  <span class="sc">|&gt;</span> </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rnumber =</span> <span class="fu">as.numeric</span>(response))</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>my_df_tall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>my_q1q4_levels <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"Extremely helpful"</span>, </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately helpful"</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly helpful"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Neither helpful nor unhelpful"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly unhelpful"</span>, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately unhelpful"</span>, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Extremely unhelpful"</span> ))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="ot">&lt;-</span> satisfaction_df <span class="sc">|&gt;</span> </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(response_id, q1<span class="sc">:</span><span class="fu">last_col</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(response_id, q15), </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"my_question"</span>, </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"response"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>))  <span class="sc">|&gt;</span> </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rnumber =</span> <span class="fu">as.numeric</span>(response))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="sc">|&gt;</span> </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(response_id, my_question, response) <span class="sc">|&gt;</span> </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">gt</span>()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["response_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["q15"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["my_question"],"name":[3],"type":["chr"],"align":["left"]},{"label":["response"],"name":[4],"type":["fct"],"align":["left"]},{"label":["rnumber"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"R_e3ejzhVVTZuvmKO","2":"7","3":"q1","4":"Slightly unhelpful","5":"3"},{"1":"R_e3ejzhVVTZuvmKO","2":"7","3":"q4","4":"Slightly helpful","5":"5"},{"1":"R_aXL9ynkORziN92u","2":"9","3":"q1","4":"Extremely unhelpful","5":"1"},{"1":"R_aXL9ynkORziN92u","2":"9","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_29LPWO0gVguRarc","2":"4","3":"q1","4":"Extremely unhelpful","5":"1"},{"1":"R_29LPWO0gVguRarc","2":"4","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_cTqQmU3FFv32VT0","2":"5","3":"q1","4":"Extremely helpful","5":"7"},{"1":"R_cTqQmU3FFv32VT0","2":"5","3":"q4","4":"Slightly helpful","5":"5"},{"1":"R_bJ8L6mMnfHPCDfo","2":"6","3":"q1","4":"Extremely helpful","5":"7"},{"1":"R_bJ8L6mMnfHPCDfo","2":"6","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_50CZzmhbm9mgkd0","2":"0","3":"q1","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_50CZzmhbm9mgkd0","2":"0","3":"q4","4":"Slightly unhelpful","5":"3"},{"1":"R_5jVSxwmPzZiLMBU","2":"4","3":"q1","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_5jVSxwmPzZiLMBU","2":"4","3":"q4","4":"Slightly unhelpful","5":"3"},{"1":"R_8J5N3i0PRRh5YWO","2":"1","3":"q1","4":"Moderately helpful","5":"6"},{"1":"R_8J5N3i0PRRh5YWO","2":"1","3":"q4","4":"Slightly helpful","5":"5"},{"1":"R_cwsICnONgESema2","2":"1","3":"q1","4":"Slightly unhelpful","5":"3"},{"1":"R_cwsICnONgESema2","2":"1","3":"q4","4":"Slightly unhelpful","5":"3"},{"1":"R_1NvcrFWMwepsNmK","2":"7","3":"q1","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_1NvcrFWMwepsNmK","2":"7","3":"q4","4":"Moderately unhelpful","5":"2"},{"1":"R_0OstNtrV57ljeL4","2":"6","3":"q1","4":"Slightly unhelpful","5":"3"},{"1":"R_0OstNtrV57ljeL4","2":"6","3":"q4","4":"Moderately unhelpful","5":"2"},{"1":"R_6fGEz9BmNrzwHiu","2":"9","3":"q1","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_6fGEz9BmNrzwHiu","2":"9","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_0qStrCB3PCqH7q6","2":"3","3":"q1","4":"Extremely unhelpful","5":"1"},{"1":"R_0qStrCB3PCqH7q6","2":"3","3":"q4","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_8qUkmPFfFkgT56C","2":"0","3":"q1","4":"Slightly helpful","5":"5"},{"1":"R_8qUkmPFfFkgT56C","2":"0","3":"q4","4":"Slightly unhelpful","5":"3"},{"1":"R_3aSsW5ZX2neFrkW","2":"5","3":"q1","4":"Moderately unhelpful","5":"2"},{"1":"R_3aSsW5ZX2neFrkW","2":"5","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_25JuEDt9Iwxp3CK","2":"6","3":"q1","4":"Moderately unhelpful","5":"2"},{"1":"R_25JuEDt9Iwxp3CK","2":"6","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_2b1m9F6Hxh0wN3o","2":"3","3":"q1","4":"Extremely unhelpful","5":"1"},{"1":"R_2b1m9F6Hxh0wN3o","2":"3","3":"q4","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_4OwQs4STJK4SZvM","2":"7","3":"q1","4":"Extremely unhelpful","5":"1"},{"1":"R_4OwQs4STJK4SZvM","2":"7","3":"q4","4":"Moderately helpful","5":"6"},{"1":"R_eDRDCywJwOsMeHk","2":"9","3":"q1","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_eDRDCywJwOsMeHk","2":"9","3":"q4","4":"Extremely helpful","5":"7"},{"1":"R_1RL7o4qj1cXyrsy","2":"8","3":"q1","4":"Moderately helpful","5":"6"},{"1":"R_1RL7o4qj1cXyrsy","2":"8","3":"q4","4":"Extremely unhelpful","5":"1"},{"1":"R_9sheRVgWVLW66dE","2":"6","3":"q1","4":"Moderately unhelpful","5":"2"},{"1":"R_9sheRVgWVLW66dE","2":"6","3":"q4","4":"Moderately unhelpful","5":"2"},{"1":"R_cxam1i7Ms2eDlXM","2":"2","3":"q1","4":"Moderately unhelpful","5":"2"},{"1":"R_cxam1i7Ms2eDlXM","2":"2","3":"q4","4":"Neither helpful nor unhelpful","5":"4"},{"1":"R_3Viy1voA4D5FPy6","2":"2","3":"q1","4":"Moderately helpful","5":"6"},{"1":"R_3Viy1voA4D5FPy6","2":"2","3":"q4","4":"Slightly helpful","5":"5"},{"1":"R_afr0h5WDIcEeDPM","2":"5","3":"q1","4":"Extremely helpful","5":"7"},{"1":"R_afr0h5WDIcEeDPM","2":"5","3":"q4","4":"Moderately unhelpful","5":"2"},{"1":"R_2mexe5Qu9W1mAya","2":"9","3":"q1","4":"Extremely helpful","5":"7"},{"1":"R_2mexe5Qu9W1mAya","2":"9","3":"q4","4":"Moderately helpful","5":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div id="bdcrywootb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#bdcrywootb) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#bdcrywootb) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#bdcrywootb) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#bdcrywootb) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#bdcrywootb) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#bdcrywootb) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#bdcrywootb) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#bdcrywootb) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#bdcrywootb) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#bdcrywootb) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#bdcrywootb) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#bdcrywootb) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#bdcrywootb) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#bdcrywootb) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#bdcrywootb) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#bdcrywootb) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#bdcrywootb) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#bdcrywootb) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#bdcrywootb) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#bdcrywootb) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#bdcrywootb) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#bdcrywootb) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#bdcrywootb) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#bdcrywootb) .gt_left {
+  text-align: left;
+}
+
+:where(#bdcrywootb) .gt_center {
+  text-align: center;
+}
+
+:where(#bdcrywootb) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#bdcrywootb) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#bdcrywootb) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#bdcrywootb) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#bdcrywootb) .gt_super {
+  font-size: 65%;
+}
+
+:where(#bdcrywootb) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#bdcrywootb) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#bdcrywootb) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#bdcrywootb) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#bdcrywootb) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#bdcrywootb) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#bdcrywootb) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="response_id">response_id</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="my_question">my_question</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="response">response</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="response_id" class="gt_row gt_left">R_e3ejzhVVTZuvmKO</td>
+<td headers="my_question" class="gt_row gt_left">q1</td>
+<td headers="response" class="gt_row gt_center">Slightly unhelpful</td></tr>
+    <tr><td headers="response_id" class="gt_row gt_left">R_e3ejzhVVTZuvmKO</td>
+<td headers="my_question" class="gt_row gt_left">q4</td>
+<td headers="response" class="gt_row gt_center">Slightly helpful</td></tr>
+    <tr><td headers="response_id" class="gt_row gt_left">R_aXL9ynkORziN92u</td>
+<td headers="my_question" class="gt_row gt_left">q1</td>
+<td headers="response" class="gt_row gt_center">Extremely unhelpful</td></tr>
+    <tr><td headers="response_id" class="gt_row gt_left">R_aXL9ynkORziN92u</td>
+<td headers="my_question" class="gt_row gt_left">q4</td>
+<td headers="response" class="gt_row gt_center">Extremely helpful</td></tr>
+    <tr><td headers="response_id" class="gt_row gt_left">R_29LPWO0gVguRarc</td>
+<td headers="my_question" class="gt_row gt_left">q1</td>
+<td headers="response" class="gt_row gt_center">Extremely unhelpful</td></tr>
+    <tr><td headers="response_id" class="gt_row gt_left">R_29LPWO0gVguRarc</td>
+<td headers="my_question" class="gt_row gt_left">q4</td>
+<td headers="response" class="gt_row gt_center">Extremely helpful</td></tr>
+  </tbody>
+  
+  
+</table>
 </div>
 </div>
 </div>
 </section>
 <section id="visualize" class="level3">
 <h3 class="anchored" data-anchor-id="visualize">Visualize</h3>
-<p><a href="#fig-barplot-survey-results">Figure&nbsp;2</a> Still using code that is quarto-friendly, we can quickly visualize as we explore our data.</p>
+<p><a href="#fig-barplot-survey-results">Figure&nbsp;3</a> Still using code that is quarto-friendly, we can quickly visualize as we explore our data.</p>
 <div class="cell" data-fig.format="svg" data-fig.asp="0.6">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(response)) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(my_question)) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-barplot-survey-results</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Bar plot of survey results.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-format: svg</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-asp: .6</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="sc">|&gt;</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(response)) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(my_question)) <span class="sc">+</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-barplot-survey-results" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="basic_files/figure-html/fig-barplot-survey-results-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Bar plot of survey results.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Bar plot of survey results.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -381,12 +865,9 @@ div.csl-indent {
 </section>
 <section id="cross-references" class="level3">
 <h3 class="anchored" data-anchor-id="cross-references">Cross references</h3>
-<p>Quarto will auto-label and anchor figures and tables as well as manage bibliographies. Notice <a href="#fig-data-flowchart">Figure&nbsp;1</a> and <a href="#fig-barplot-survey-results">Figure&nbsp;2</a> above.</p>
-<p>An example of a bibliographic reference can be seen here: Quarto delivers practical advantages of <em>literate coding.</em> <span class="citation" data-cites="knuth1984">Knuth (<a href="#ref-knuth1984" role="doc-biblioref">1984</a>)</span>. by allowing me to easily integrate my bibliography manager.</p>
-<p>Let’s explore a few more quarto features by adding interactivity to my visualization, next –&gt;</p>
-<div class="btn-secondary btn-sm" style="max-width: 6rem;">
-<p><a href="goo.html">next ⟶</a></p>
-</div>
+<p>Quarto will auto-label and anchor figures and tables. Notice <a href="#fig-research_project_pyramid">Figure&nbsp;1</a> , <a href="#fig-data-flowchart">Figure&nbsp;2</a> , and <a href="#fig-barplot-survey-results">Figure&nbsp;3</a> above.</p>
+<p>Bibliographic reference are also mangaged and easily integrated with citation management tools such as Zotero. For example, you might want to read this article on <em>literate coding</em> by <span class="citation" data-cites="knuth1984">Knuth (<a href="#ref-knuth1984" role="doc-biblioref">1984</a>)</span>.</p>
+<p>Let’s explore a few <strong>more quarto features</strong> by adding <span class="btn-secondary btn-sm" style="max-width: 6rem;"><a href="observable.html">interactivity to our visualization ⟶</a></span></p>
 
 
 <!-- -->
@@ -610,11 +1091,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>::: g-col-5</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="al">![Research project pyramid](images/Project%20Foundation%20Pyramid.png "Research Project Pyramid")</span>{fig-alt="Research project pyramid" width="66%"}</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="al">![Research project pyramid](images/Project%20Foundation%20Pyramid.png "Research Project Pyramid")</span>{#fig-research_project_pyramid fig-alt="Research project pyramid" width="66%"}</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>@fig-data-flowchart with Quarto the workflow of moving from data to publication is more approachable.</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>With Quarto the workflow ( @fig-data-flowchart ) of moving from data to publication is more approachable.</span>
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>%%| label: fig<span class="ot">-d</span>ata<span class="ot">-f</span>lowchart</span>
@@ -629,83 +1110,101 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  E --&gt; I(etc.)</span>
 <span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>I like coding in Tidyverse R via the RStudio IDE using quarto code-notebooks. Quarto also supports other environments and <span class="co">[</span><span class="ot">the first page of this website gives a very brief overview</span><span class="co">](index.html)</span> of quarto-friendly tools/languages. Read more at https://Quarto.org</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Import data</span></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>In the next code chunks, We'll load the <span class="in">`{tidyverse}`</span> suite of packages and import some test data generated for a test survey hosted at Qualtrics. Note, it's very easy to hide the code and just show the results. But here, I'm imagining you want to see the code. In the examples I will hide some of the code, but you can click on the <span class="in">`&lt;/&gt; Code`</span> option (above: upper-right,) or the git-hub icon in the navigation bar for direct access to the code. All these helpers are Quarto features.</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>satisfaction_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>my_df_colnames_and_questions <span class="ot">&lt;-</span> </span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>my_colnames_vec <span class="ot">&lt;-</span> <span class="fu">colnames</span>(my_df_colnames_and_questions)</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(satisfaction_df) <span class="ot">&lt;-</span> my_colnames_vec</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wrangle</span></span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from <span class="in">`{dplyr} {tidyr} {forcats}`</span>) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for an demonstration.</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>my_q1q4_levels <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"Extremely helpful"</span>, </span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately helpful"</span>, </span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly helpful"</span>, </span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Neither helpful nor unhelpful"</span>,</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly unhelpful"</span>, </span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately unhelpful"</span>, </span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Extremely unhelpful"</span> ))</span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="ot">&lt;-</span> satisfaction_df <span class="sc">|&gt;</span> </span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(response_id, q1<span class="sc">:</span><span class="fu">last_col</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(response_id, q15), </span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"my_question"</span>, </span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"response"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>))  <span class="sc">|&gt;</span> </span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rnumber =</span> <span class="fu">as.numeric</span>(response))</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>my_df_tall</span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualize</span></span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>@fig-barplot-survey-results Still using code that is quarto-friendly, we can quickly visualize as we explore our data.</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-barplot-survey-results</span></span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Bar plot of survey results.</span></span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-format: svg</span></span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-asp: .6</span></span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="sc">|&gt;</span> </span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(response)) <span class="sc">+</span></span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(my_question)) <span class="sc">+</span> </span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cross references</span></span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a>Quarto will auto-label and anchor figures and tables as well as manage bibliographies. Notice @fig-data-flowchart and @fig-barplot-survey-results above.</span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>An example of a bibliographic reference can be seen here: Quarto delivers practical advantages of *literate coding.* @knuth1984. by allowing me to easily integrate my bibliography manager.</span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>Let's explore a few more quarto features by adding interactivity to my visualization, next --<span class="sc">\&gt;</span></span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>::: {.btn-secondary .btn-sm style="max-width: 6rem;"}</span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">next ⟶</span><span class="co">](goo.html)</span></span>
-<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" icon="false"}</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## How did I make the flow-chart diagram above? Click to expand.</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>Quarto has native support for <span class="co">[</span><span class="ot">embedding diagrams</span><span class="co">](https://quarto.org/docs/authoring/diagrams.html)</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>How is it done? Follow the link above, Or...</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Scroll to the top of this page and click the {{&lt; fa solid code &gt;}} icon to see all the code</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Or, see the code by clicking the GitHub icon {{&lt; fa brands github &gt;}} in the navigation bar</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>I like coding in Tidyverse R via the RStudio IDE using quarto code-notebooks. Quarto also supports other environments and <span class="co">[</span><span class="ot">the first page of this website gives a very brief overview</span><span class="co">](index.html)</span> of quarto-friendly tools/languages. Read more at https://Quarto.org</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Import data</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>In the next code chunks, We'll load the <span class="in">`{tidyverse}`</span> suite of packages and import some test data generated for a test survey hosted at Qualtrics.</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>satisfaction_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_names =</span> <span class="cn">FALSE</span>, <span class="at">skip =</span> <span class="dv">3</span>)</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>my_df_colnames_and_questions <span class="ot">&lt;-</span> </span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"data/qualtrics_student_satisfaction-test-data.csv"</span>, </span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>()</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>my_colnames_vec <span class="ot">&lt;-</span> <span class="fu">colnames</span>(my_df_colnames_and_questions)</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(satisfaction_df) <span class="ot">&lt;-</span> my_colnames_vec</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wrangle</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from <span class="in">`{dplyr} {tidyr} {forcats}`</span>) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for an demonstration.</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>my_q1q4_levels <span class="ot">&lt;-</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="st">"Extremely helpful"</span>, </span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately helpful"</span>, </span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly helpful"</span>, </span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Neither helpful nor unhelpful"</span>,</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Slightly unhelpful"</span>, </span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Moderately unhelpful"</span>, </span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"Extremely unhelpful"</span> ))</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="ot">&lt;-</span> satisfaction_df <span class="sc">|&gt;</span> </span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(response_id, q1<span class="sc">:</span><span class="fu">last_col</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(response_id, q15), </span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"my_question"</span>, </span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"response"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>))  <span class="sc">|&gt;</span> </span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rnumber =</span> <span class="fu">as.numeric</span>(response))</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="sc">|&gt;</span> </span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(response_id, my_question, response) <span class="sc">|&gt;</span> </span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">gt</span>()</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="fu">### Visualize</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>@fig-barplot-survey-results Still using code that is quarto-friendly, we can quickly visualize as we explore our data.</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-barplot-survey-results</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: Bar plot of survey results.</span></span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-format: svg</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 7</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-asp: .6</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>my_df_tall <span class="sc">|&gt;</span> </span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(my_question <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"q1"</span>, <span class="st">"q4"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">response =</span> <span class="fu">factor</span>(response, <span class="at">levels =</span> my_q1q4_levels)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(response)) <span class="sc">+</span></span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(my_question)) <span class="sc">+</span> </span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cross references</span></span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a>Quarto will auto-label and anchor figures and tables. Notice @fig-research_project_pyramid , @fig-data-flowchart , and @fig-barplot-survey-results above.</span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a>Bibliographic reference are also mangaged and easily integrated with citation management tools such as Zotero. For example, you might want to read this article on *literate coding* by @knuth1984.</span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>Let's explore a few **more quarto features** by adding [<span class="co">[</span><span class="ot">interactivity to our visualization ⟶</span><span class="co">](observable.html)</span>]{.btn-secondary .btn-sm style="max-width: 6rem;"}</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -7,8 +7,9 @@ format:
 ### [Quarto is...](https://quarto.org)
 
  \
+Quarto is an **open-source** publishing suite
 
-An **open-source** publishing suite
+> ...a tool-suite that supports workflows for reproducible scholarly writing and publishing.
 
 Leveraged by multiple coding languages
 
@@ -22,18 +23,12 @@ Supported by multiple IDEs
 
 -   [QuartoPub \| GitHub Pages \| Posit Connect \| Netlify \| Others]{.gray}
 
-A useful addition to your **reproducible workflow**
+A useful addition to your **reproducible workflow**\
 
- \
+::: {.callout-tip icon="false"}
+## Website & slides
 
-::: {.card .bg-secondary .mb-3}
-::: card-header
-Website & slides
-:::
-
-::: card-body
-Website and slides were developed via the Quarto suite and published to [Quarto.pub](https://quarto.pub)
-:::
+This website and the slides were developed via the Quarto suite and published to [Quarto.pub](https://quarto.pub)
 :::
 
 <!-- More info on applyting styles -->

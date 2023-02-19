@@ -24,7 +24,9 @@ website:
         text: Interactivity
       - href: more_info.qmd
         text: Get started / more information
-      - about.qmd
+      - href: about.qmd
+        text: About
+      
     right:
       - icon: github
         href: https://github.com/libjohn/quarto_what_is_it

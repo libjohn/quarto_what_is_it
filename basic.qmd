@@ -21,11 +21,11 @@ The idea is to follow *reproducibility* best practices and derive your reports f
 :::
 
 ::: g-col-5
-![Research project pyramid](images/Project%20Foundation%20Pyramid.png "Research Project Pyramid"){fig-alt="Research project pyramid" width="66%"}
+![Research project pyramid](images/Project%20Foundation%20Pyramid.png "Research Project Pyramid"){#fig-research_project_pyramid fig-alt="Research project pyramid" width="66%"}
 :::
 :::
 
-@fig-data-flowchart with Quarto the workflow of moving from data to publication is more approachable.
+With Quarto the workflow ( @fig-data-flowchart ) of moving from data to publication is more approachable.
 
 ```{mermaid}
 %%| label: fig-data-flowchart
@@ -40,15 +40,29 @@ flowchart LR
   E --> I(etc.)
 ```
 
+::: {.callout-tip collapse="true" icon="false"}
+## How did I make the flow-chart diagram above? Click to expand.
+
+Quarto has native support for [embedding diagrams](https://quarto.org/docs/authoring/diagrams.html)
+
+How is it done? Follow the link above, Or...
+
+-   Scroll to the top of this page and click the {{< fa solid code >}} icon to see all the code
+
+-   Or, see the code by clicking the GitHub icon {{< fa brands github >}} in the navigation bar
+:::
+
 ## Example
 
 I like coding in Tidyverse R via the RStudio IDE using quarto code-notebooks. Quarto also supports other environments and [the first page of this website gives a very brief overview](index.html) of quarto-friendly tools/languages. Read more at https://Quarto.org
 
 ### Import data
 
-In the next code chunks, We'll load the `{tidyverse}` suite of packages and import some test data generated for a test survey hosted at Qualtrics. Note, it's very easy to hide the code and just show the results. But here, I'm imagining you want to see the code. In the examples I will hide some of the code, but you can click on the `</> Code` option (above: upper-right,) or the git-hub icon in the navigation bar for direct access to the code. All these helpers are Quarto features.
+In the next code chunks, We'll load the `{tidyverse}` suite of packages and import some test data generated for a test survey hosted at Qualtrics.
 
 ```{r}
+#| echo: fenced
+
 library(tidyverse)
 satisfaction_df <- read_csv("data/qualtrics_student_satisfaction-test-data.csv", 
     col_names = FALSE, skip = 3)
@@ -65,6 +79,9 @@ colnames(satisfaction_df) <- my_colnames_vec
 Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from `{dplyr} {tidyr} {forcats}`) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for an demonstration.
 
 ```{r}
+#| code-fold: true
+#| echo: fenced
+
 my_q1q4_levels <- rev(c("Extremely helpful", 
                    "Moderately helpful", 
                    "Slightly helpful", 
@@ -81,7 +98,11 @@ my_df_tall <- satisfaction_df |>
   filter(my_question %in% c("q1", "q4"))  |> 
   mutate(response = factor(response, levels = my_q1q4_levels)) |> 
   mutate(rnumber = as.numeric(response))
-my_df_tall
+
+my_df_tall |> 
+  slice_head(n = 6) |> 
+  select(response_id, my_question, response) |> 
+  gt::gt()
 ```
 
 ### Visualize
@@ -95,6 +116,7 @@ my_df_tall
 #| fig-width: 7
 #| fig-asp: .6
 #| code-fold: true
+#| echo: fenced
 
 my_df_tall |> 
   filter(my_question %in% c("q1", "q4")) |> 
@@ -108,12 +130,8 @@ my_df_tall |>
 
 ### Cross references
 
-Quarto will auto-label and anchor figures and tables as well as manage bibliographies. Notice @fig-data-flowchart and @fig-barplot-survey-results above.
+Quarto will auto-label and anchor figures and tables. Notice @fig-research_project_pyramid , @fig-data-flowchart , and @fig-barplot-survey-results above.
 
-An example of a bibliographic reference can be seen here: Quarto delivers practical advantages of *literate coding.* @knuth1984. by allowing me to easily integrate my bibliography manager.
+Bibliographic reference are also mangaged and easily integrated with citation management tools such as Zotero. For example, you might want to read this article on *literate coding* by @knuth1984.
 
-Let's explore a few more quarto features by adding interactivity to my visualization, next --\>
-
-::: {.btn-secondary .btn-sm style="max-width: 6rem;"}
-[next ⟶](goo.html)
-:::
+Let's explore a few **more quarto features** by adding [[interactivity to our visualization ⟶](observable.html)]{.btn-secondary .btn-sm style="max-width: 6rem;"}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="John R Little">
-<meta name="dcterms.date" content="2023-02-18">
+<meta name="dcterms.date" content="2023-02-19">
 
 <title>What is Quarto - Quarto documentation and turorials</title>
 <style>
@@ -21,6 +21,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -126,7 +145,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-reproducible-research-practices" id="toc-introduction-to-reproducible-research-practices" class="nav-link active" data-scroll-target="#introduction-to-reproducible-research-practices">Introduction to reproducible Research Practices</a>
+  <li><a href="#authoring" id="toc-authoring" class="nav-link active" data-scroll-target="#authoring">Authoring</a>
+  <ul class="collapse">
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing">Publishing</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-reproducible-research-practices" id="toc-introduction-to-reproducible-research-practices" class="nav-link" data-scroll-target="#introduction-to-reproducible-research-practices">Introduction to reproducible Research Practices</a>
   <ul class="collapse">
   <li><a href="#quarto-documentation" id="toc-quarto-documentation" class="nav-link" data-scroll-target="#quarto-documentation">Quarto documentation</a></li>
   </ul></li>
@@ -165,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 18, 2023</p>
+      <p class="date">February 19, 2023</p>
     </div>
   </div>
   
@@ -175,13 +199,37 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>Getting Started?</strong> Read this <a href="https://quarto.org/docs/get-started/authoring/rstudio.html">quarto authoring overview</a> (Custom tutorial. Be sure to customize the instructions by <strong>picking your</strong> IDE or CLI approach)</p>
-<p>How Quarto enhances the workflow of scientific writing</p>
+<section id="authoring" class="level2">
+<h2 class="anchored" data-anchor-id="authoring">Authoring</h2>
+<p>As <a href="index.html">noted</a>, you can compose your quarto code notebooks in VS Code, RStudio, Jupyter, Neovim, or a text editor.</p>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
+<p>The <a href="https://quarto.org/docs/get-started/">Quarto getting started page</a> provides customized instruction based on which editor you choose, while the <a href="https://quarto.org/docs/get-started/authoring">Quarto authoring tutorial</a> shows you how to begin composing your reports.</p>
+<p>Below, I recommend this excellent <em>how to</em> by Mine <span class="citation" data-cites="cetinkaya-rundel2023">Cetinkaya-Rundel (<a href="#ref-cetinkaya-rundel2023" role="doc-biblioref">2023</a>)</span> demonstrating the workflow of scientific writing supported with Quarto:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
 </iframe>
-<p>&nbsp;<a href="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs"><img src="https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube.png" title="YouTube Playlist" class="img-fluid" alt="YouTube Playlist"></a></p>
+<p>Or, see more in this &nbsp;<a href="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs"><img src="https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube.png" title="YouTube Playlist" class="img-fluid" alt="YouTube Playlist"></a></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
 </iframe>
+</section>
+<section id="publishing" class="level3">
+<h3 class="anchored" data-anchor-id="publishing">Publishing</h3>
+<p>Using the command line terminal, type: <code>quarto publish</code> and choose your publish target (i.e.&nbsp;GitHub Pages, Netlify, Quarto.pub, Posit Connect, or Other services.) The Quarto <a href="https://quarto.org/docs/publishing/">publish documentation</a> explains the details.</p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Terminal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>quarto publish</code></p>
+</div>
+</div>
+</section>
+</section>
 <section id="introduction-to-reproducible-research-practices" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-reproducible-research-practices">Introduction to reproducible Research Practices</h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VjDM-XsoHUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
@@ -195,10 +243,15 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-cetinkaya-rundel2023" class="csl-entry" role="doc-biblioentry">
+Cetinkaya-Rundel, Mine. 2023. <span>“Hello, Quarto: A World of Possibilities (for Reproducible Publishing),”</span> February. <a href="https://www.youtube.com/watch?v=Qrz2rUWM-uY">https://www.youtube.com/watch?v=Qrz2rUWM-uY</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

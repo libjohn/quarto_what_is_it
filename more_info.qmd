@@ -1,20 +1,37 @@
 ---
 title: "Quarto documentation and turorials"
+bibliography: references.bib
 ---
 
-**Getting Started?** Read this [quarto authoring overview](https://quarto.org/docs/get-started/authoring/rstudio.html) (Custom tutorial. Be sure to customize the instructions by **picking your** IDE or CLI approach)
+## Authoring
 
-How Quarto enhances the workflow of scientific writing
+As [noted](index.html), you can compose your quarto code notebooks in VS Code, RStudio, Jupyter, Neovim, or a text editor.
+
+### Getting Started
+
+The [Quarto getting started page](https://quarto.org/docs/get-started/) provides customized instruction based on which editor you choose, while the [Quarto authoring tutorial](https://quarto.org/docs/get-started/authoring) shows you how to begin composing your reports.
+
+Below, I recommend this excellent *how to* by Mine @cetinkaya-rundel2023 demonstrating the workflow of scientific writing supported with Quarto:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
 
- [![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube "YouTube Playlist")](https://www.youtube.com/embed/videoseries?start=60&list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs)
+Or, see more in this  [![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube "YouTube Playlist"){alt="YouTube Playlist"}](https://www.youtube.com/embed/videoseries?start=60&list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
 </iframe>
+
+### Publishing
+
+Using the command line terminal, type: `quarto publish` and choose your publish target (i.e. GitHub Pages, Netlify, Quarto.pub, Posit Connect, or Other services.) The Quarto [publish documentation](https://quarto.org/docs/publishing/) explains the details.
+
+::: {.callout-note icon="false"}
+## Terminal
+
+`quarto publish`
+:::
 
 ## Introduction to reproducible Research Practices
 

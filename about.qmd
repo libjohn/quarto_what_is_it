@@ -6,17 +6,19 @@ format:
     toc: false
 ---
 
-This site was developed for an [Rfun](https://rfun.library.duke.edu) workshop entitled *Quarto: a first look*
+This site was developed for an [Rfun](https://rfun.library.duke.edu) workshop entitled *Quarto: a first look.* The site was developed using Quarto and published at https://quarto.pub.
 
-[John Little](https://johnlittle.info) is the host of Rfun, a site devoted to learning R and the Tidyverse.
+Working in the [Center for Data & Visualization Sciences](https://library.duke.edu/data), [John Little](https://johnlittle.info) is the host of Rfun, a site devoted to learning R and the Tidyverse.
 
 ## Data sets
 
-The data sets in this example Quarto publication are as follows:
+Data for this Quarto publication example are found in the [data directory of the GitHub repository](https://github.com/libjohn/quarto_what_is_it):
 
 | Title                     | Information                                                                  | Filename                                       |
-|---------------------------------|---------------------|------------------|
+|--------------------------------|---------------------|-------------------|
 | Qualtrics survey data     | Auto-generated test data generated at Qualtrics compiled using a test survey | `qualtrics_student_satisfaction-test-data.csv` |
 | Monthly Retail trade data | https://www.census.gov/retail/index.html                                     | `data.csv`                                     |
 
-[More information](https://github.com/libjohn/quarto_what_is_it/data/README.md)
+## License and Reuse
+
+{{< fa brands creative-commons size=2x >}} {{< fa brands creative-commons-by size=2x >}} Creative Commons BY 4.0
