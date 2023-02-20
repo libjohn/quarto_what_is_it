@@ -12,4 +12,4 @@ This [Quarto](https://quarto.org) demonstration uses \[R\] code to publish to on
 
 -   Netlify: https://luminous-raindrop-c18a5d.netlify.app/observable.html
 
--   Quarto-pub: https://libjohn.quarto.pub/goo/
+-   Quarto-pub: https://libjohn.quarto.pub/quarto/

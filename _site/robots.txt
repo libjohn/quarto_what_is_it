@@ -1,1 +1,1 @@
-Sitemap: https://quartopub.com/sites/libjohn/goo/sitemap.xml
+Sitemap: https://quartopub.com/sites/libjohn/quarto/sitemap.xml

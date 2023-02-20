@@ -20,3 +20,5 @@ Data for this Quarto publication example are found in the [data directory of the
 ## License and Reuse
 
 {{< fa brands creative-commons size=2x >}} {{< fa brands creative-commons-by size=2x >}} Creative Commons BY 4.0
+
+;-j
