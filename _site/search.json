@@ -39,7 +39,7 @@
     "href": "index.html",
     "title": "What is Quarto",
     "section": "",
-    "text": "Quarto is an open-source publishing suite\n\n…a tool-suite that supports workflows for reproducible scholarly writing and publishing.\n\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n\n\n\n\n\n\n\nWebsite & slides\n\n\n\nThis website and the slides were developed via the Quarto suite and published to Quarto.pub\n\n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
+    "text": "Quarto is…\n\n\nQuarto is an open-source publishing suite\n\n…a tool-suite that supports workflows for reproducible scholarly writing and publishing.\n\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n\n\n\n\n\n\n\nWebsite & slides\n\n\n\nThis website and the slides were developed via the Quarto suite and published to Quarto.pub\n\n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
   },
   {
     "objectID": "LICENSE.html",
@@ -130,7 +130,7 @@
     "href": "slides.html#reproducibility-payoff",
     "title": "What is Quarto",
     "section": "Reproducibility Payoff",
-    "text": "Reproducibility Payoff\nReproducible workflows for computation thinking\ndata -> analysis -> publishing\n\nDo everything with code\nderive reports from code\n\nQuarto reports can be PDF, MSWord, Slides (PPTx, revealjs, etc.), Websites, Dashboards, eBooks, Blogs, Interactivity apps (ObservableJS; Shiny; more)"
+    "text": "Reproducibility Payoff\nReproducible workflows for computation thinking\ndata → analysis → publishing\n\nDo everything with code\nDerive reports from code\n\nQuarto reports can be PDF, MSWord, Slides (PPTx, revealjs, etc.), Websites, Dashboards, eBooks, Blogs, Interactivity apps (ObservableJS; Shiny; more)"
   },
   {
     "objectID": "slides.html#citations-tables-figures-and-scientific-notation",
@@ -144,7 +144,7 @@
     "href": "slides.html#review",
     "title": "What is Quarto",
     "section": "Review",
-    "text": "Review\nQuarto helps you derive reports from code and facilitates publishing to your favorite host\n\nNote:\nUnlike many other tools, Quarto does not present a lock-in situation. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly [scientific] communication."
+    "text": "Review\nQuarto helps you derive reports from code and facilitates publishing to your favorite host\n\nNote:\nUnlike many other tools, Quarto is open, does not lock-in to a proprietary host. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly [scientific] communication."
   },
   {
     "objectID": "slides.html#resources",

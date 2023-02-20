@@ -36,11 +36,11 @@ I'm going to use RStudio and freely publish to Quarto.pub
 
 Reproducible workflows for *computation thinking*
 
-data -\> analysis -\> publishing
+data → analysis → publishing
 
 -   Do everything with code
 
--   derive reports from code
+-   Derive reports from code
 
 Quarto reports can be PDF, MSWord, Slides (PPTx, revealjs, etc.), Websites, Dashboards, eBooks, Blogs, Interactivity apps (ObservableJS; Shiny; more)
 
@@ -62,7 +62,7 @@ Quarto helps you derive reports from code and facilitates publishing to your fav
 
 #### Note:
 
-Unlike many other tools, Quarto does not present a lock-in situation. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly \[scientific\] communication.
+Unlike many other tools, Quarto is open, does not lock-in to a proprietary host. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly \[scientific\] communication.
 
 ## Resources
 
@@ -81,3 +81,5 @@ Unlike many other tools, Quarto does not present a lock-in situation. You render
     -   gallery
 
 # Show
+
+Next: [Code as you like](basic.html)

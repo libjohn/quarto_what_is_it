@@ -7,7 +7,7 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.1.179">
+  <meta name="generator" content="quarto-1.2.269">
 
   <meta name="author" content="John Little">
   <meta name="dcterms.date" content="2023-02-20">
@@ -324,12 +324,19 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">What is Quarto</h1>
-  <p class="author">John Little</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+John Little 
+</div>
+</div>
+</div>
+
   <p class="date">February 20, 2023</p>
 </section>
-
 <section>
 <section id="define" class="title-slide slide level1 center">
 <h1>Define</h1>
@@ -361,10 +368,10 @@
 <section id="reproducibility-payoff" class="slide level2">
 <h2>Reproducibility Payoff</h2>
 <p>Reproducible workflows for <em>computation thinking</em></p>
-<p>data -&gt; analysis -&gt; publishing</p>
+<p>data → analysis → publishing</p>
 <ul>
 <li><p>Do everything with code</p></li>
-<li><p>derive reports from code</p></li>
+<li><p>Derive reports from code</p></li>
 </ul>
 <p>Quarto reports can be PDF, MSWord, Slides (PPTx, revealjs, etc.), Websites, Dashboards, eBooks, Blogs, Interactivity apps (ObservableJS; Shiny; more)</p>
 </section>
@@ -384,7 +391,7 @@
 <p>Quarto helps you derive reports from code and facilitates publishing to your favorite host</p>
 <div class="fragment">
 <h4 id="note">Note:</h4>
-<p>Unlike many other tools, Quarto does not present a lock-in situation. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly [scientific] communication.</p>
+<p>Unlike many other tools, Quarto is open, does not lock-in to a proprietary host. You render Quarto reports that can be hosted anywhere, anytime. Quarto is about scholarly [scientific] communication.</p>
 </div>
 </section>
 <section id="resources" class="slide level2">
@@ -403,6 +410,7 @@
 </section></section>
 <section id="show" class="title-slide slide level1 center">
 <h1>Show</h1>
+<p>Next: <a href="basic.html">Code as you like</a></p>
 
 <div class="footer footer-default">
 <p>CC BY 4.0 John R Little</p>
@@ -657,7 +665,24 @@
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -695,24 +720,42 @@
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>
