@@ -45,9 +45,9 @@ flowchart LR
 
 Quarto has native support for [embedding diagrams](https://quarto.org/docs/authoring/diagrams.html)
 
-How is it done? Follow the link above, Or...
+How is it done? Follow the link above
 
--   Scroll to the top of this page and click the {{< fa solid code >}} icon to see all the code
+-   Or, scroll to the top of this page and click the `</> Code` {{< fa solid code >}} icon to see all the code
 
 -   Or, see the code by clicking the GitHub icon {{< fa brands github >}} in the navigation bar
 :::
@@ -76,7 +76,7 @@ colnames(satisfaction_df) <- my_colnames_vec
 
 ### Wrangle
 
-Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from `{dplyr} {tidyr} {forcats}`) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for an demonstration.
+Using one of the quarto-friendly coding languages, we can wrangle our data with a familiar functions (in this case from `{dplyr}, {tidyr}, {forcats}`) then apply categorical structure, pivot the data for tallying, and subset the data to a small size that is suitable for our demonstration.
 
 ```{r}
 #| code-fold: true

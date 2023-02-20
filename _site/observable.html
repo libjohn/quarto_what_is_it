@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="John R Little">
-<meta name="dcterms.date" content="2023-02-19">
+<meta name="dcterms.date" content="2023-02-20">
 
 <title>What is Quarto - Interactivity: Quarto &amp; Observable JS</title>
 <style>
@@ -104,8 +104,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -205,10 +203,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#interactivity-observablejs" id="toc-interactivity-observablejs" class="nav-link active" data-scroll-target="#interactivity-observablejs">Interactivity (Observablejs)</a></li>
   <li><a href="#download" id="toc-download" class="nav-link" data-scroll-target="#download">Download</a></li>
   <li><a href="#transpose-to-arquero" id="toc-transpose-to-arquero" class="nav-link" data-scroll-target="#transpose-to-arquero">Transpose to arquero</a></li>
-  <li><a href="#one-more-example" id="toc-one-more-example" class="nav-link" data-scroll-target="#one-more-example">One more example</a>
-  <ul class="collapse">
-  <li><a href="#derive-date-arquero-data-wrangling" id="toc-derive-date-arquero-data-wrangling" class="nav-link" data-scroll-target="#derive-date-arquero-data-wrangling">Derive date (arquero data wrangling)</a></li>
-  </ul></li>
+  <li><a href="#one-more-example" id="toc-one-more-example" class="nav-link" data-scroll-target="#one-more-example">One more example</a></li>
+  <li><a href="#arquero-data-wrangling" id="toc-arquero-data-wrangling" class="nav-link" data-scroll-target="#arquero-data-wrangling">Arquero data wrangling</a></li>
   <li><a href="#observablejs-libraries" id="toc-observablejs-libraries" class="nav-link" data-scroll-target="#observablejs-libraries">Observablejs libraries</a></li>
   </ul>
 </nav>
@@ -245,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 19, 2023</p>
+      <p class="date">February 20, 2023</p>
     </div>
   </div>
   
@@ -261,27 +257,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
+<div class="cell">
+
+</div>
 <section id="interactivity-observablejs" class="level2">
 <h2 class="anchored" data-anchor-id="interactivity-observablejs">Interactivity (Observablejs)</h2>
 <p>This is a very basic example of diplaying an interactive visualization using ObservableJS.</p>
 <div>
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="54" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 53;"><span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">// viewof my_question = Inputs.radio(</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">//  ["q1", "q4"], </span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">//  {  value: "q1", </span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">//     label: html`&lt;b&gt;Choose Question&lt;/b&gt;`,</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co">//     multiple: true</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">// })</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>viewof radio_2 <span class="op">=</span> </span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span>  <span class="bu">Map</span>([</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question One"</span><span class="op">,</span>  <span class="st">'q1'</span>]<span class="op">,</span> </span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question Four"</span><span class="op">,</span> <span class="st">'q4'</span>]</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  {  <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Survey results summarized:&lt;/b&gt;`</span><span class="op">,</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>     <span class="dt">value</span><span class="op">:</span> <span class="st">'q1'</span><span class="op">,</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>     <span class="dt">multiple</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="59" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 58;"><span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">// viewof my_question = Inputs.radio(</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co">//  ["q1", "q4"], </span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co">//  {  value: "q1", </span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="co">//     label: html`&lt;b&gt;Choose Question&lt;/b&gt;`,</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">//     multiple: true</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">// })</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>viewof radio_2 <span class="op">=</span> </span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span>  <span class="bu">Map</span>([</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question One"</span><span class="op">,</span>  <span class="st">'q1'</span>]<span class="op">,</span> </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question Four"</span><span class="op">,</span> <span class="st">'q4'</span>]</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  {  <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Survey results summarized:&lt;/b&gt;`</span><span class="op">,</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>     <span class="dt">value</span><span class="op">:</span> <span class="st">'q1'</span><span class="op">,</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>     <span class="dt">multiple</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell panel-input card bg-light p-2 quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
@@ -299,37 +298,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb2" data-startfrom="78" data-source-offset="29"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 77;"><span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co">//| code-fold: true</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>my_survey_filtered <span class="op">=</span> my_survey</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>aq<span class="op">.</span><span class="fu">escape</span><span class="op">(</span>d <span class="op">=&gt;</span> d<span class="op">.</span><span class="fu">my_question</span> <span class="op">==</span> radio_2<span class="op">))</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">groupby</span><span class="op">(</span><span class="er">'</span>my_question<span class="er">'</span><span class="op">,</span> <span class="er">'</span>response<span class="er">'</span><span class="op">,</span> <span class="er">'</span>rnumber<span class="er">'</span><span class="op">)</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">count</span><span class="op">()</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">orderby</span><span class="op">(</span><span class="er">'</span>my_question<span class="er">'</span><span class="op">,</span> aq<span class="op">.</span><span class="fu">desc</span><span class="op">(</span><span class="er">'</span>rnumber<span class="er">'</span><span class="op">))</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span><span class="op">({</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  marginRight<span class="op">:</span> <span class="dv">140</span><span class="op">,</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>  y<span class="op">:</span> <span class="op">{</span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>    axis<span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    domain<span class="op">:</span> d3<span class="op">.</span><span class="fu">sort</span><span class="op">(</span>my_survey_filtered<span class="op">,</span> d <span class="op">=&gt;</span> <span class="op">-</span>d<span class="op">.</span><span class="fu">rnumber</span><span class="op">).</span><span class="fu">map</span><span class="op">(</span>d <span class="op">=&gt;</span> d<span class="op">.</span><span class="fu">response</span><span class="op">)</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  x<span class="op">:</span> <span class="op">{</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    grid<span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a> marks<span class="op">:</span> <span class="op">[</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span><span class="op">(</span>my_survey_filtered<span class="op">,</span> <span class="op">{</span>y<span class="op">:</span> <span class="st">"response"</span><span class="op">,</span> x<span class="op">:</span> <span class="st">"count"</span><span class="op">}),</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span><span class="op">(</span>my_survey_filtered<span class="op">,</span> <span class="op">{</span></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>      x<span class="op">:</span> <span class="st">"count"</span><span class="op">,</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>      y<span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>      text<span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>      textAnchor<span class="op">:</span> <span class="st">"start"</span><span class="op">,</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>      dx<span class="op">:</span> <span class="dv">6</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="op">})</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="op">})</span></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="83" data-source-offset="29"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 82;"><span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="co">//| code-fold: true</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>my_survey_filtered <span class="op">=</span> my_survey</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span><span class="op">(</span>aq<span class="op">.</span><span class="fu">escape</span><span class="op">(</span>d <span class="op">=&gt;</span> d<span class="op">.</span><span class="fu">my_question</span> <span class="op">==</span> radio_2<span class="op">))</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">groupby</span><span class="op">(</span><span class="er">'</span>my_question<span class="er">'</span><span class="op">,</span> <span class="er">'</span>response<span class="er">'</span><span class="op">,</span> <span class="er">'</span>rnumber<span class="er">'</span><span class="op">)</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">count</span><span class="op">()</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">orderby</span><span class="op">(</span><span class="er">'</span>my_question<span class="er">'</span><span class="op">,</span> aq<span class="op">.</span><span class="fu">desc</span><span class="op">(</span><span class="er">'</span>rnumber<span class="er">'</span><span class="op">))</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span><span class="op">({</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>  marginRight<span class="op">:</span> <span class="dv">140</span><span class="op">,</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>  y<span class="op">:</span> <span class="op">{</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>    axis<span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    domain<span class="op">:</span> d3<span class="op">.</span><span class="fu">sort</span><span class="op">(</span>my_survey_filtered<span class="op">,</span> d <span class="op">=&gt;</span> <span class="op">-</span>d<span class="op">.</span><span class="fu">rnumber</span><span class="op">).</span><span class="fu">map</span><span class="op">(</span>d <span class="op">=&gt;</span> d<span class="op">.</span><span class="fu">response</span><span class="op">)</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  x<span class="op">:</span> <span class="op">{</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>    grid<span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>  <span class="op">},</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a> marks<span class="op">:</span> <span class="op">[</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span><span class="op">(</span>my_survey_filtered<span class="op">,</span> <span class="op">{</span>y<span class="op">:</span> <span class="st">"response"</span><span class="op">,</span> x<span class="op">:</span> <span class="st">"count"</span><span class="op">}),</span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span><span class="op">(</span>my_survey_filtered<span class="op">,</span> <span class="op">{</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>      x<span class="op">:</span> <span class="st">"count"</span><span class="op">,</span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>      y<span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>      text<span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>      textAnchor<span class="op">:</span> <span class="st">"start"</span><span class="op">,</span></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>      dx<span class="op">:</span> <span class="dv">6</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>    <span class="op">})</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="op">})</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -349,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="112" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 111;"><span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>my_survey_filtered<span class="op">.</span><span class="fu">view</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="117" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 116;"><span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>my_survey_filtered<span class="op">.</span><span class="fu">view</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-3" data-nodetype="expression">
 
@@ -363,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="download" class="level2">
 <h2 class="anchored" data-anchor-id="download">Download</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="119" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 118;"><span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(my_survey<span class="op">.</span><span class="fu">objects</span>()<span class="op">,</span> <span class="st">"Qualtrics_test_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="124" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 123;"><span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(my_survey<span class="op">.</span><span class="fu">objects</span>()<span class="op">,</span> <span class="st">"Qualtrics_test_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-4" data-nodetype="expression">
 
@@ -373,9 +372,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="transpose-to-arquero" class="level2">
 <h2 class="anchored" data-anchor-id="transpose-to-arquero">Transpose to arquero</h2>
-<div class="cell">
-
-</div>
 <p>Behind the scenes, when rendering this report, I use <code>{r}</code> code-chunks to import and wrangle the data. Just like I did in <a href="basic.html"><em>code how you like</em></a>, I’m importing and wrangling my data with a quarto-friendly code language. Then I <em>transpose</em> my data frame into an OJS object.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5" data-startfrom="132" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 131;"><span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
@@ -404,32 +400,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Reveal code: click the <i class="fa-solid fa-code" aria-label="code"></i> icon (scroll to the top)
+Reveal code: click the <code>&lt;/&gt; Code</code> icon
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page reveals the observablejs <code>{ojs}</code> code-chunks. However, this page demonstrates using <code>{r}</code> and <code>{ojs}</code> together in the same quarto-document. You can scroll to the top and click the <i class="fa-solid fa-code" aria-label="code"></i> icon to see all the code. Or click <i class="fa-brands fa-github" aria-label="github"></i> in the navigation bar. Quarto makes it easy to include these features.</p>
+<p>This page reveals the observablejs <code>{ojs}</code> code-chunks. However, this page demonstrates using <code>{r}</code> and <code>{ojs}</code> together in the same quarto-document. You can scroll to the top and click the <code>&lt;/&gt; Code</code> icon to see all the code. Or click the GitHub icon in the navigation bar. Quarto makes it easy to include these features.</p>
 </div>
 </div>
 </section>
 <section id="one-more-example" class="level2">
 <h2 class="anchored" data-anchor-id="one-more-example">One more example</h2>
-<p>The next code-chunk shows a very simple example of ObservableJS <code>Plot</code> code for visualization. This one <em>is not interactive to show the remarkable similarity to ggplot2 syntax</em>.</p>
+<p>The next code-chunk shows a very simple example of ObservableJS <code>{Plot}</code> code for visualization. This example <em>is not interactive,</em> to show the remarkable similarity to <code>{ggplot2}</code> syntax.</p>
 <p>plot</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-startfrom="151" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 150;"><span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span><span class="op">({</span></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>  marks<span class="op">:</span> <span class="op">[</span></span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span><span class="op">([</span><span class="dv">0</span><span class="op">]),</span></span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">lineY</span><span class="op">(</span>my_data_wrangled<span class="op">,</span> <span class="op">{</span></span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>      x<span class="op">:</span> <span class="st">"date"</span><span class="op">,</span></span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>      y<span class="op">:</span> <span class="st">"sales"</span><span class="op">,</span></span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>      stroke<span class="op">:</span> <span class="st">"business"</span></span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>    <span class="op">}),</span></span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a><span class="op">})</span></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" data-startfrom="150" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 149;"><span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span><span class="op">({</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>  marks<span class="op">:</span> <span class="op">[</span></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span><span class="op">([</span><span class="dv">0</span><span class="op">]),</span></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">lineY</span><span class="op">(</span>my_data_wrangled<span class="op">,</span> <span class="op">{</span></span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>      x<span class="op">:</span> <span class="st">"date"</span><span class="op">,</span></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>      y<span class="op">:</span> <span class="st">"sales"</span><span class="op">,</span></span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>      stroke<span class="op">:</span> <span class="st">"business"</span></span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>    <span class="op">}),</span></span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>  <span class="op">]</span></span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="op">})</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="expression">
 
@@ -446,21 +442,24 @@ Reveal code: click the <i class="fa-solid fa-code" aria-label="code"></i> icon (
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Notice the crispness and clarity of the plot (↥↥↥ above.) Even when generating a non-interactive plot, <a href="https://observablehq.com/@observablehq/plot">Observable Plot</a> shows well on the web!</p>
+<p>Notice the crispness and clarity of the simple non-interactive plot above. <a href="https://observablehq.com/@observablehq/plot">Observable Plot</a> shows well on the web!</p>
 </div>
 </div>
-<section id="derive-date-arquero-data-wrangling" class="level3">
-<h3 class="anchored" data-anchor-id="derive-date-arquero-data-wrangling">Derive date (arquero data wrangling)</h3>
+</section>
+<section id="arquero-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="arquero-data-wrangling">Arquero data wrangling</h2>
 <div class="gray">
-<p><strong>Arquero</strong>! Now what is that? Well, <em>Observable JavaScript</em> is its own coding language and we can minimize the learning curve by focusing on the <a href="https://observablehq.com/plot">Plot</a> grammar and syntax, which is quite similar to <code>ggplot2</code>. However, <a href="https://quarto.org/docs/interactive/ojs/">Observable JS</a> is a complete and rich coding language of its own. But just like <a href="https://quarto.org/docs/interactive/shiny/">Shiny</a>, we want to learn just enough to get the job done. Still, there’s always an edge case where a little data wrangling is optimal. This is where <a href="https://observablehq.com/@uwdata/introducing-arquero">Arquero</a> comes into view. Arquero is easy to learn and use for data transformations, because it was inspired by <code>dplyr</code>.</p>
-<p>So, aside from the <code>{dplyr}</code> wrangling that I did in the background of this code, I still needed to parse the date fields. Arquero to the rescue. Because <strong>meh</strong>. I mean, <em>parsing date data-types</em> – so what’s new?</p>
+<p><strong>Derive date</strong></p>
+<p>Aside from the <code>{dplyr}</code> wrangling that I did in the background of this code notebook, I still needed to parse the date fields. Arquero to the rescue.</p>
+<p><strong>Arquero</strong>! Now what is that? <em>Observable JavaScript</em> is its own coding language and we can minimize the learning curve by keeping our data wrangling within our favorite coding language. <strong>Then</strong> we can focus on using the <a href="https://observablehq.com/plot">{Plot}</a> grammar and syntax, which is quite similar to <code>{ggplot2}</code> – see the above example. However, <a href="https://quarto.org/docs/interactive/ojs/">Observable JS</a> is a complete and rich coding language of its own. But just like <a href="https://quarto.org/docs/interactive/shiny/">{<code>shiny</code>}</a>, we want to learn just enough to get the job done. Still, there’s always an edge case where a little data wrangling is optimal. This is where <a href="https://observablehq.com/@uwdata/introducing-arquero"><code>{arquero}</code></a> comes in. Arquero is used for data transformation and is easy to learn because it was inspired by <code>{dplyr}</code>. <em>Show the code</em> for the first plot on this page and you’ll see the similarity to <code>{dplyr}</code>.</p>
+<p>Below I parse a data type using <code>{arquero}</code>.</p>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7" data-startfrom="179" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 178;"><span id="cb7-179"><a href="#cb7-179" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
-<span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb7-181"><a href="#cb7-181" aria-hidden="true" tabindex="-1"></a>my_data_wrangled <span class="op">=</span> my_data</span>
-<span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">derive</span><span class="op">({</span>  date<span class="op">:</span> d <span class="op">=&gt;</span>  op<span class="op">.</span><span class="fu">parse_date</span><span class="op">(</span>d<span class="op">.</span><span class="fu">date</span><span class="op">)</span> <span class="op">})</span></span>
-<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-startfrom="182" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 181;"><span id="cb7-182"><a href="#cb7-182" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
+<span id="cb7-183"><a href="#cb7-183" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb7-184"><a href="#cb7-184" aria-hidden="true" tabindex="-1"></a>my_data_wrangled <span class="op">=</span> my_data</span>
+<span id="cb7-185"><a href="#cb7-185" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">derive</span><span class="op">({</span>  date<span class="op">:</span> d <span class="op">=&gt;</span>  op<span class="op">.</span><span class="fu">parse_date</span><span class="op">(</span>d<span class="op">.</span><span class="fu">date</span><span class="op">)</span> <span class="op">})</span></span>
+<span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-7" data-nodetype="declaration">
 
@@ -468,19 +467,18 @@ Reveal code: click the <i class="fa-solid fa-code" aria-label="code"></i> icon (
 </div>
 </div>
 </section>
-</section>
 <section id="observablejs-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="observablejs-libraries">Observablejs libraries</h2>
 <p>By convention, observable libraries are loaded at the bottom of a code notebook. You can read more about observablejs at Observablehq.com. By way of a teaser, I didn’t have to use <code>{r}</code> to wrangle the retail data. I could have <em>imported the data directly from observable</em>. Such as ….</p>
 <p>&gt; <code>import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"</code></p>
-<p>But on this page, I’m demonstrating how we leveraged <code>{R}</code> and <code>{ojs}</code> code with Quarto, so that I can introduce some useful interactivity.</p>
+<p>But on this page, I’m demonstrating how we leveraged <code>{R}</code> and <code>{ojs}</code> code with Quarto, so that I can present useful interactivity and demonstrate multi-lingual coding using a Quarto notebook.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-startfrom="193" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 192;"><span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
-<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">{ aq, op } from '@uwdata/arquero'</span></span>
-<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a><span class="co">// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"</span></span>
-<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">{button as downloadButton} from "@jeremiak/download-data-button"</span></span>
-<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" data-startfrom="196" data-source-offset="9"><pre class="sourceCode java code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 195;"><span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">{ aq, op } from '@uwdata/arquero'</span></span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a><span class="co">// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"</span></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="im">{button as downloadButton} from "@jeremiak/download-data-button"</span></span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-8-1" data-nodetype="declaration">
@@ -744,87 +742,87 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rnumber =</span> <span class="fu">as.numeric</span>(response))</span>
 <span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interactivity (Observablejs)</span></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>This is a very basic example of diplaying an interactive visualization using ObservableJS.</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="co">//| panel: input</span></span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="co">//| layout-ncol: 1</span></span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="co">// viewof my_question = Inputs.radio(</span></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="co">//  ["q1", "q4"], </span></span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a><span class="co">//  {  value: "q1", </span></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="co">//     label: html`&lt;b&gt;Choose Question&lt;/b&gt;`,</span></span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="co">//     multiple: true</span></span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="co">// })</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="fu">ojs_define</span>(<span class="at">trade_df_ojs =</span> trade_df)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="fu">ojs_define</span>(<span class="at">my_df_tall_ojs =</span> my_df_tall)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interactivity (Observablejs)</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>This is a very basic example of diplaying an interactive visualization using ObservableJS.</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="co">//| panel: input</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a><span class="co">//| layout-ncol: 1</span></span>
 <span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>viewof radio_2 <span class="op">=</span> </span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span>  <span class="bu">Map</span>([</span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question One"</span><span class="op">,</span>  <span class="st">'q1'</span>]<span class="op">,</span> </span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question Four"</span><span class="op">,</span> <span class="st">'q4'</span>]</span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>  {  <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Survey results summarized:&lt;/b&gt;`</span><span class="op">,</span></span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>     <span class="dt">value</span><span class="op">:</span> <span class="st">'q1'</span><span class="op">,</span></span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>     <span class="dt">multiple</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plot</span></span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a><span class="co">//| code-fold: true</span></span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>my_survey_filtered <span class="op">=</span> my_survey</span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(aq<span class="op">.</span><span class="fu">escape</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">my_question</span> <span class="op">==</span> radio_2))</span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">groupby</span>(<span class="st">'my_question'</span><span class="op">,</span> <span class="st">'response'</span><span class="op">,</span> <span class="st">'rnumber'</span>)</span>
-<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">count</span>()</span>
-<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">orderby</span>(<span class="st">'my_question'</span><span class="op">,</span> aq<span class="op">.</span><span class="fu">desc</span>(<span class="st">'rnumber'</span>))</span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">140</span><span class="op">,</span></span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>    <span class="dt">axis</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sort</span>(my_survey_filtered<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="op">-</span>d<span class="op">.</span><span class="at">rnumber</span>)<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">response</span>)</span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a> <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span>(my_survey_filtered<span class="op">,</span> {<span class="dt">y</span><span class="op">:</span> <span class="st">"response"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"count"</span>})<span class="op">,</span></span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(my_survey_filtered<span class="op">,</span> {</span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"count"</span><span class="op">,</span></span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>      <span class="dt">text</span><span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>      <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span></span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>      <span class="dt">dx</span><span class="op">:</span> <span class="dv">6</span></span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a><span class="vs">## Data</span></span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>my_survey_filtered<span class="op">.</span><span class="fu">view</span>()</span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a><span class="co">// viewof my_question = Inputs.radio(</span></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="co">//  ["q1", "q4"], </span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="co">//  {  value: "q1", </span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="co">//     label: html`&lt;b&gt;Choose Question&lt;/b&gt;`,</span></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="co">//     multiple: true</span></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="co">// })</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>viewof radio_2 <span class="op">=</span> </span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">radio</span>(</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>  <span class="kw">new</span>  <span class="bu">Map</span>([</span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question One"</span><span class="op">,</span>  <span class="st">'q1'</span>]<span class="op">,</span> </span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"Question Four"</span><span class="op">,</span> <span class="st">'q4'</span>]</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>  ])<span class="op">,</span></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a>  {  <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;b&gt;Survey results summarized:&lt;/b&gt;`</span><span class="op">,</span></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>     <span class="dt">value</span><span class="op">:</span> <span class="st">'q1'</span><span class="op">,</span></span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>     <span class="dt">multiple</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Plot</span></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a><span class="co">//| code-fold: true</span></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>my_survey_filtered <span class="op">=</span> my_survey</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filter</span>(aq<span class="op">.</span><span class="fu">escape</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">my_question</span> <span class="op">==</span> radio_2))</span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">groupby</span>(<span class="st">'my_question'</span><span class="op">,</span> <span class="st">'response'</span><span class="op">,</span> <span class="st">'rnumber'</span>)</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">count</span>()</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">orderby</span>(<span class="st">'my_question'</span><span class="op">,</span> aq<span class="op">.</span><span class="fu">desc</span>(<span class="st">'rnumber'</span>))</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marginRight</span><span class="op">:</span> <span class="dv">140</span><span class="op">,</span></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>    <span class="dt">axis</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>    <span class="dt">domain</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sort</span>(my_survey_filtered<span class="op">,</span> d <span class="kw">=&gt;</span> <span class="op">-</span>d<span class="op">.</span><span class="at">rnumber</span>)<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">response</span>)</span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a> <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barX</span>(my_survey_filtered<span class="op">,</span> {<span class="dt">y</span><span class="op">:</span> <span class="st">"response"</span><span class="op">,</span> <span class="dt">x</span><span class="op">:</span> <span class="st">"count"</span>})<span class="op">,</span></span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">text</span>(my_survey_filtered<span class="op">,</span> {</span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"count"</span><span class="op">,</span></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>      <span class="dt">text</span><span class="op">:</span> <span class="st">"response"</span><span class="op">,</span></span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>      <span class="dt">textAnchor</span><span class="op">:</span> <span class="st">"start"</span><span class="op">,</span></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>      <span class="dt">dx</span><span class="op">:</span> <span class="dv">6</span></span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="vs">## Data</span></span>
 <span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="vs">## Download</span></span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(my_survey<span class="op">.</span><span class="fu">objects</span>()<span class="op">,</span> <span class="st">"Qualtrics_test_data.csv"</span>)</span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a><span class="vs">## Transpose to arquero</span></span>
-<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="fu">ojs_define</span>(trade_df_ojs <span class="op">=</span> trade_df)</span>
-<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="fu">ojs_define</span>(my_df_tall_ojs <span class="op">=</span> my_df_tall)</span>
-<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>my_survey_filtered<span class="op">.</span><span class="fu">view</span>()</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a><span class="vs">## Download</span></span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a><span class="fu">downloadButton</span>(my_survey<span class="op">.</span><span class="fu">objects</span>()<span class="op">,</span> <span class="st">"Qualtrics_test_data.csv"</span>)</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a><span class="vs">## Transpose to arquero</span></span>
 <span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a><span class="vs">Behind the scenes, when rendering this report, I use `</span>{r}<span class="vs">` code-chunks to import and wrangle the data. Just like I did in [*code how you like*](basic.html), I'm importing and wrangling my data with a quarto-friendly code language. Then I *transpose* my data frame into an OJS object.</span></span>
 <span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a></span>
@@ -835,66 +833,69 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
 <span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a><span class="vs">::: callout-note</span></span>
-<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="vs">## Reveal code: click the {{&lt; fa solid code &gt;}} icon (scroll to the top)</span></span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="vs">## Reveal code: click the `</span><span class="op">&lt;/&gt;</span> <span class="fu">Code</span><span class="vs">` {{&lt; fa solid code &gt;}} icon</span></span>
 <span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a><span class="vs">This page reveals the observablejs `</span>{ojs}<span class="vs">` code-chunks. However, this page demonstrates using `</span>{r}<span class="vs">` and `</span>{ojs}<span class="vs">` together in the same quarto-document. You can scroll to the top and click the {{&lt; fa solid code &gt;}} icon to see all the code. Or click {{&lt; fa brands github &gt;}} in the navigation bar. Quarto makes it easy to include these features.</span></span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a><span class="vs">This page reveals the observablejs `</span>{ojs}<span class="vs">` code-chunks. However, this page demonstrates using `</span>{r}<span class="vs">` and `</span>{ojs}<span class="vs">` together in the same quarto-document. You can scroll to the top and click the `</span><span class="op">&lt;/&gt;</span> <span class="fu">Code</span><span class="vs">` {{&lt; fa solid code &gt;}} icon to see all the code. Or click the GitHub icon {{&lt; fa brands github &gt;}} in the navigation bar. Quarto makes it easy to include these features.</span></span>
 <span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
 <span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a><span class="vs">## One more example</span></span>
-<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a><span class="vs">The next code-chunk shows a very simple example of ObservableJS `</span><span class="fu">Plot</span><span class="vs">` code for visualization. This one *is not interactive to show the remarkable similarity to ggplot2 syntax*.</span></span>
-<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a><span class="vs">plot</span></span>
-<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
-<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">lineY</span>(my_data_wrangled<span class="op">,</span> {</span>
-<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span></span>
-<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"sales"</span><span class="op">,</span></span>
-<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"business"</span></span>
-<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
-<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="vs">::: callout-important</span></span>
-<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a><span class="vs">## ↥ Look up!</span></span>
-<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a><span class="vs">Notice the crispness and clarity of the plot (↥↥↥ above.) Even when generating a non-interactive plot, [Observable Plot](https://observablehq.com/@observablehq/plot) shows well on the web!</span></span>
-<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
-<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a><span class="vs">### Derive date (arquero data wrangling)</span></span>
-<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="vs">::: gray</span></span>
-<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a><span class="vs">**Arquero**! Now what is that? Well, *Observable JavaScript* is its own coding language and we can minimize the learning curve by focusing on the [Plot](https://observablehq.com/plot) grammar and syntax, which is quite similar to `</span><span class="fu">ggplot2</span><span class="vs">`. However, [Observable JS](https://quarto.org/docs/interactive/ojs/) is a complete and rich coding language of its own. But just like [Shiny](https://quarto.org/docs/interactive/shiny/), we want to learn just enough to get the job done. Still, there's always an edge case where a little data wrangling is optimal. This is where [Arquero](https://observablehq.com/@uwdata/introducing-arquero) comes into view. Arquero is easy to learn and use for data transformations, because it was inspired by `</span><span class="fu">dplyr</span><span class="vs">`.</span></span>
-<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a><span class="vs">So, aside from the `</span>{dplyr}<span class="vs">` wrangling that I did in the background of this code, I still needed to parse the date fields. Arquero to the rescue. Because **meh**. I mean, *parsing date data-types* -- so what's new?</span></span>
-<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a><span class="vs">## One more example</span></span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a><span class="vs">The next code-chunk shows a very simple example of ObservableJS `</span>{Plot}<span class="vs">` code for visualization. This example *is not interactive,* to show the remarkable similarity to `</span>{ggplot2}<span class="vs">` syntax.</span></span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="vs">plot</span></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
+<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">lineY</span>(my_data_wrangled<span class="op">,</span> {</span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>      <span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span></span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a>      <span class="dt">y</span><span class="op">:</span> <span class="st">"sales"</span><span class="op">,</span></span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a>      <span class="dt">stroke</span><span class="op">:</span> <span class="st">"business"</span></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a><span class="vs">::: callout-important</span></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="vs">## ↥ Look up!</span></span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="vs">Notice the crispness and clarity of the simple non-interactive plot above. [Observable Plot](https://observablehq.com/@observablehq/plot) shows well on the web!</span></span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a><span class="vs">## Arquero data wrangling</span></span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a><span class="vs">::: gray</span></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="vs">**Derive date**</span></span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a><span class="vs">Aside from the `</span>{dplyr}<span class="vs">` wrangling that I did in the background of this code notebook, I still needed to parse the date fields. Arquero to the rescue.</span></span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a><span class="vs">**Arquero**! Now what is that? *Observable JavaScript* is its own coding language and we can minimize the learning curve by keeping our data wrangling within our favorite coding language. **Then** we can focus on using the [{Plot}](https://observablehq.com/plot) grammar and syntax, which is quite similar to `</span>{ggplot2}<span class="vs">` -- see the above example. However, [Observable JS](https://quarto.org/docs/interactive/ojs/) is a complete and rich coding language of its own. But just like [{`</span><span class="fu">shiny</span><span class="vs">`}](https://quarto.org/docs/interactive/shiny/), we want to learn just enough to get the job done. Still, there's always an edge case where a little data wrangling is optimal. This is where [`</span>{arquero}<span class="vs">`](https://observablehq.com/@uwdata/introducing-arquero) comes in. Arquero is used for data transformation and is easy to learn because it was inspired by `</span>{dplyr}<span class="vs">`. *Show the code* for the first plot on this page and you'll see the similarity to `</span>{dplyr}<span class="vs">`.</span></span>
 <span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>my_data_wrangled <span class="op">=</span> my_data</span>
-<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">derive</span>({  <span class="dt">date</span><span class="op">:</span> d <span class="kw">=&gt;</span>  op<span class="op">.</span><span class="fu">parse_date</span>(d<span class="op">.</span><span class="at">date</span>) })</span>
-<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
-<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a><span class="vs">## Observablejs libraries</span></span>
-<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a><span class="vs">By convention, observable libraries are loaded at the bottom of a code notebook. You can read more about observablejs at Observablehq.com. By way of a teaser, I didn't have to use `</span>{r}<span class="vs">` to wrangle the retail data. I could have *imported the data directly from observable*. Such as ....</span></span>
-<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a><span class="sc">\&gt;</span><span class="vs"> `</span>import { data<span class="op">,</span> advancedDate } <span class="im">from</span> <span class="st">"@observablehq/monthly-retail-trade-report-data"</span><span class="vs">`</span></span>
-<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a><span class="vs">But on this page, I'm demonstrating how we leveraged `</span>{R}<span class="vs">` and `</span>{ojs}<span class="vs">` code with Quarto, so that I can introduce some useful interactivity.</span></span>
-<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
-<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
-<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { aq<span class="op">,</span> op } <span class="im">from</span> <span class="st">'@uwdata/arquero'</span></span>
-<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a><span class="co">// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"</span></span>
-<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {button <span class="im">as</span> downloadButton} <span class="im">from</span> <span class="st">"@jeremiak/download-data-button"</span></span>
-<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a><span class="vs">Below I parse a data type using `</span>{arquero}<span class="vs">`.</span></span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a><span class="vs">:::</span></span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a>my_data_wrangled <span class="op">=</span> my_data</span>
+<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">derive</span>({  <span class="dt">date</span><span class="op">:</span> d <span class="kw">=&gt;</span>  op<span class="op">.</span><span class="fu">parse_date</span>(d<span class="op">.</span><span class="at">date</span>) })</span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a><span class="vs">## Observablejs libraries</span></span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a><span class="vs">By convention, observable libraries are loaded at the bottom of a code notebook. You can read more about observablejs at Observablehq.com. By way of a teaser, I didn't have to use `</span>{r}<span class="vs">` to wrangle the retail data. I could have *imported the data directly from observable*. Such as ....</span></span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a><span class="sc">\&gt;</span><span class="vs"> `</span>import { data<span class="op">,</span> advancedDate } <span class="im">from</span> <span class="st">"@observablehq/monthly-retail-trade-report-data"</span><span class="vs">`</span></span>
+<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a><span class="vs">But on this page, I'm demonstrating how we leveraged `</span>{R}<span class="vs">` and `</span>{ojs}<span class="vs">` code with Quarto, so that I can present useful interactivity and demonstrate multi-lingual coding using a Quarto notebook.</span></span>
+<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a><span class="in">```{ojs}</span></span>
+<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a><span class="co">//| echo: fenced</span></span>
+<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { aq<span class="op">,</span> op } <span class="im">from</span> <span class="st">'@uwdata/arquero'</span></span>
+<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a><span class="co">// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"</span></span>
+<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> {button <span class="im">as</span> downloadButton} <span class="im">from</span> <span class="st">"@jeremiak/download-data-button"</span></span>
+<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a><span class="vs">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

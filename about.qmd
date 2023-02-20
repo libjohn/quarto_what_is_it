@@ -1,6 +1,4 @@
 ---
-title: "About this site"
-
 format: 
   html:
     toc: false
@@ -15,7 +13,7 @@ Working in the [Center for Data & Visualization Sciences](https://library.duke.e
 Data for this Quarto publication example are found in the [data directory of the GitHub repository](https://github.com/libjohn/quarto_what_is_it):
 
 | Title                     | Information                                                                  | Filename                                       |
-|--------------------------------|---------------------|-------------------|
+|-----------------|----------------------------------|---------------------|
 | Qualtrics survey data     | Auto-generated test data generated at Qualtrics compiled using a test survey | `qualtrics_student_satisfaction-test-data.csv` |
 | Monthly Retail trade data | https://www.census.gov/retail/index.html                                     | `data.csv`                                     |
 
