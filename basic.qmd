@@ -17,7 +17,7 @@ bibliography: references.bib
 ::: g-col-7
 With Quarto you can use **your favorite coding language**, to develop and orchestrated your research project.
 
-The idea is to follow *reproducibility* best practices and derive your reports from code as noted in @anintro2022 .
+The idea is to follow *reproducibility* best practices and derive your reports from code as noted by @little2022 .
 :::
 
 ::: g-col-5

@@ -25,7 +25,7 @@
     "href": "basic.html",
     "title": "Code as you like",
     "section": "",
-    "text": "With Quarto you can use your favorite coding language, to develop and orchestrated your research project.\nThe idea is to follow reproducibility best practices and derive your reports from code as noted in “An Introduction to Reproducible Research Practices” (2022) .\n\n\n\n\n\n\n\nFigure 1: Research project pyramid\nWith Quarto the workflow ( Figure 2 ) of moving from data to publication is more approachable."
+    "text": "With Quarto you can use your favorite coding language, to develop and orchestrated your research project.\nThe idea is to follow reproducibility best practices and derive your reports from code as noted by Little and Lafferty-Hess (2022) .\n\n\n\n\n\n\n\nFigure 1: Research project pyramid\nWith Quarto the workflow ( Figure 2 ) of moving from data to publication is more approachable."
   },
   {
     "objectID": "basic.html#example",
@@ -39,7 +39,7 @@
     "href": "index.html",
     "title": "What is Quarto",
     "section": "",
-    "text": "Quarto is…\n\n\nQuarto is an open-source publishing suite\n\n…a tool-suite that supports workflows for reproducible scholarly writing and publishing.\n\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n\n\n\n\n\n\n\nWebsite & slides\n\n\n\nThis website and the slides were developed via the Quarto suite and published to Quarto.pub\n\n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
+    "text": "Quarto is an open-source publishing suite\n\n…a tool-suite that supports workflows for reproducible scholarly writing and publishing.\n\nLeveraged by multiple coding languages\n\nPython, R, Julia, ObservableJS\n\nSupported by multiple IDEs\n\nVS Code, Jupyter, RStudio, Neovim\n\nPublish to multiple hosting targets\n\nQuartoPub | GitHub Pages | Posit Connect | Netlify | Others\n\nA useful addition to your reproducible workflow\n\n\n\n\n\n\n\nWebsite & slides\n\n\n\nThis website and the slides were developed via the Quarto suite and published to Quarto.pub\n\n\n\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
   },
   {
     "objectID": "LICENSE.html",
@@ -53,14 +53,14 @@
     "href": "more_info.html",
     "title": "Quarto documentation and turorials",
     "section": "",
-    "text": "As noted, you can compose your quarto code notebooks in VS Code, RStudio, Jupyter, Neovim, or a text editor.\n\n\nThe Quarto getting started page provides customized instructions based on the editor you use and the Quarto authoring tutorial shows you how to begin composing your reports.\nBelow, I recommend this excellent how-to by Mine Cetinkaya-Rundel (2023) demonstrating the workflow of scientific writing supported with Quarto:\n\n\nOr, see more in this  \n\n\n\n\n\nUsing the command line terminal, type: quarto publish and choose your publish target (i.e. GitHub Pages, Netlify, Quarto.pub, Posit Connect, or Other services.) The Quarto publish documentation explains the details.\n\n\n\n\n\n\nTerminal\n\n\n\nquarto publish"
+    "text": "As noted, you can compose your quarto code notebooks in VS Code, RStudio, Jupyter, Neovim, or a text editor.\n\n\nThe Quarto getting started page provides customized instructions based on the editor you use and the Quarto authoring tutorial shows you how to begin composing your reports.\nBelow, I recommend this excellent how-to video by Cetinkaya-Rundel (2023) demonstrating the workflow of scientific writing supported with Quarto:\n\n\nOr, see more in this  \n\n\n\n\n\nUsing the command line terminal, type: quarto publish and choose your publish target (i.e. GitHub Pages, Netlify, Quarto.pub, Posit Connect, or Other services.) The Quarto publish documentation explains the details.\n\n\n\n\n\n\nTerminal\n\n\n\nquarto publish"
   },
   {
     "objectID": "more_info.html#introduction-to-reproducible-research-practices",
     "href": "more_info.html#introduction-to-reproducible-research-practices",
     "title": "Quarto documentation and turorials",
     "section": "Introduction to reproducible Research Practices",
-    "text": "Introduction to reproducible Research Practices\nI believe one of the values of Quarto is being able to easily practice reproducibility principles using an intuitive and well documented workflow. To learn more about reproducibility see “An Introduction to Reproducible Research Practices” (2022)\n\n\n\nQuarto documentation\n\nGuides\nReference documentation\nGallery examples"
+    "text": "Introduction to reproducible Research Practices\nI believe one of the values of Quarto is being able to easily practice reproducibility principles using an intuitive and well documented workflow. To learn more about reproducibility see Little and Lafferty-Hess (2022)\n\n\n\nQuarto documentation\n\nGuides\nReference documentation\nGallery examples"
   },
   {
     "objectID": "observable.html#interactivity-observablejs",

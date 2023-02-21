@@ -11,7 +11,7 @@ As [noted](index.html), you can compose your quarto code notebooks in **VS Code,
 
 The [Quarto getting started page](https://quarto.org/docs/get-started/) provides customized instructions based on the editor you use and the [Quarto authoring tutorial](https://quarto.org/docs/get-started/authoring) shows you how to begin composing your reports.
 
-Below, I recommend this excellent *how-to* by Mine @cetinkaya-rundel2023 demonstrating the workflow of scientific writing supported with Quarto:
+Below, I recommend this excellent *how-to* video by @cetinkaya-rundel2023 demonstrating the workflow of scientific writing supported with Quarto:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
@@ -35,7 +35,7 @@ Using the command line terminal, type: `quarto publish` and choose your publish 
 
 ## Introduction to reproducible Research Practices
 
-I believe one of the values of Quarto is being able to easily practice reproducibility principles using an intuitive and well documented workflow. To learn more about reproducibility see @anintro2022
+I believe one of the values of Quarto is being able to easily practice reproducibility principles using an intuitive and well documented workflow. To learn more about reproducibility see @little2022
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VjDM-XsoHUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
