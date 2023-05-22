@@ -83,3 +83,33 @@ Unlike many other tools, Quarto is open, does not lock-in to a proprietary host.
 # Show
 
 Next: [Code as you like](basic.html)
+
+# Getting started
+
+`File > New file > Quarto Presentation`
+
+## Resources
+
+-   Quarto [Guides](https://quarto.org/docs/guide/)
+
+    -   [**User guide**](https://quarto.org/docs/presentations/revealjs/) **(columns, fig captions,**
+
+    -   [Quarto Presentation Basics](https://quarto.org/docs/presentations/)
+
+    -   [Revealjs (HTML)](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
+
+-   Quarto [reference documentation](https://quarto.org/docs/reference/)
+
+    -   [Revealjs](https://quarto.org/docs/reference/formats/presentations/revealjs.html)
+
+-   Columns
+
+-   Fig captions
+
+## Get started with Quarto presentation slides
+
+Mine Çetinkaya-Rundel<br/>
+
+{{< video https://www.youtube.com/watch?v=_f3latmOhew&t=725s width="100%" height="75%" >}}
+
+## 

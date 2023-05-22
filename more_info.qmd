@@ -11,17 +11,9 @@ As [noted](index.html), you can compose your quarto code notebooks in **VS Code,
 
 The [Quarto getting started page](https://quarto.org/docs/get-started/) provides customized instructions based on the editor you use and the [Quarto authoring tutorial](https://quarto.org/docs/get-started/authoring) shows you how to begin composing your reports.
 
-Below, I recommend this excellent *how-to* video by @cetinkaya-rundel2023 demonstrating the workflow of scientific writing supported with Quarto:
+Below, I recommend this excellent *how-to* video by @çetinkaya-rundelmine2023 demonstrating the workflow of scientific writing supported with Quarto:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Qrz2rUWM-uY?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-
-</iframe>
-
-Or, see more in this  [![YouTube Playlist](https://img.shields.io/badge/YouTube-Playlist-f00?logo=youtube "YouTube Playlist"){alt="YouTube Playlist"}](https://www.youtube.com/embed/videoseries?start=60&list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs)
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?start=60&amp;list=PL9HYL-VRX0oRupficE2l5DGgVIzpypTHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_f3latmOhew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Publishing
 
