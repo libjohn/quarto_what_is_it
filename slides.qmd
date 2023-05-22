@@ -111,5 +111,3 @@ Next: [Code as you like](basic.html)
 Mine Çetinkaya-Rundel<br/>
 
 {{< video https://www.youtube.com/watch?v=_f3latmOhew&t=725s width="100%" height="75%" >}}
-
-## 
