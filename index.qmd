@@ -6,7 +6,7 @@ format:
 
 ### [Quarto is...](https://quarto.org)
 
-###  Quarto is an **open-source** publishing suite
+### Quarto is an **open-source** publishing suite
 
 > ...a tool-suite that supports workflows for reproducible scholarly writing and publishing.
 

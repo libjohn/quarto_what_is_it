@@ -4,6 +4,7 @@ author: "John Little"
 format: 
   revealjs: 
     theme: solarized
+    # embed-resources: true
     footer: "CC BY 4.0 John R Little"
     license: CC BY
 ---
